@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://fahmidza.github.io',
-  baseUrl: '/',
+  baseUrl: '/portfolio/',
 
   organizationName: 'fahmidza',
   projectName: 'portfolio',
