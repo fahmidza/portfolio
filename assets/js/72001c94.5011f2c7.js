@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkportfolio=globalThis.webpackChunkportfolio||[]).push([[5475],{9798(o){o.exports=JSON.parse('{"metadata":{"permalink":"/portfolio/blog","page":1,"postsPerPage":5,"totalPages":1,"totalCount":2,"blogDescription":"Thoughts on data science, machine learning, and the journey of turning data into impact.","blogTitle":"Insights & Reflections"}}')}}]);
