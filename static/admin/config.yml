@@ -1,0 +1,255 @@
+# ============================================================
+# Sveltia CMS Configuration for Dzulfahmi's Portfolio
+# CMS Admin Panel: https://fahmidza.github.io/portfolio/admin/
+# ============================================================
+
+backend:
+  name: github
+  repo: fahmidza/portfolio
+  branch: main
+
+# Site URL (needed for Docusaurus baseUrl prefix)
+site_url: https://fahmidza.github.io/portfolio
+display_url: https://fahmidza.github.io/portfolio
+
+# Media files stored in static/img (Docusaurus convention)
+media_folder: "static/img"
+public_folder: "/img"
+
+# Slug settings
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+
+collections:
+  # ----------------------------------------------------------
+  # 📝 Blog Posts
+  # ----------------------------------------------------------
+  - name: "blog"
+    label: "📝 Blog Posts"
+    label_singular: "Blog Post"
+    folder: "blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{commit_date}}"
+    sortable_fields:
+      fields: ["title", "commit_date"]
+    fields:
+      - label: "Slug (URL)"
+        name: "slug"
+        widget: "string"
+        hint: "URL-friendly name, e.g. 'my-new-post'"
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        default: ["fahmidza"]
+        hint: "Author IDs defined in blog/authors.yml"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "e.g. data-science, machine-learning, career"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 📊 Data Science & Analytics Projects
+  # ----------------------------------------------------------
+  - name: "data-science"
+    label: "📊 Data Science & Analytics"
+    label_singular: "Data Science Project"
+    folder: "docs/data-science"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Sidebar Position"
+        name: "sidebar_position"
+        widget: "number"
+        value_type: "int"
+        min: 1
+        hint: "Order in sidebar (1 = first)"
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        hint: "Short description for SEO & project cards"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "e.g. python, clustering, scikit-learn"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 📈 Dashboards & Visualization Projects
+  # ----------------------------------------------------------
+  - name: "dashboards"
+    label: "📈 Dashboards & Visualization"
+    label_singular: "Dashboard Project"
+    folder: "docs/dashboards"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Sidebar Position"
+        name: "sidebar_position"
+        widget: "number"
+        value_type: "int"
+        min: 1
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 🤖 Machine Learning Projects
+  # ----------------------------------------------------------
+  - name: "machine-learning"
+    label: "🤖 Machine Learning"
+    label_singular: "ML Project"
+    folder: "docs/machine-learning"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Sidebar Position"
+        name: "sidebar_position"
+        widget: "number"
+        value_type: "int"
+        min: 1
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 🌐 Web Application Projects
+  # ----------------------------------------------------------
+  - name: "web-apps"
+    label: "🌐 Web Applications"
+    label_singular: "Web App Project"
+    folder: "docs/web-apps"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Sidebar Position"
+        name: "sidebar_position"
+        widget: "number"
+        value_type: "int"
+        min: 1
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 📄 Standalone Pages (About Me, Welcome/Intro)
+  # ----------------------------------------------------------
+  - name: "pages"
+    label: "📄 Pages"
+    files:
+      - name: "about"
+        label: "About Me"
+        file: "docs/about.md"
+        fields:
+          - label: "Sidebar Position"
+            name: "sidebar_position"
+            widget: "number"
+            value_type: "int"
+            default: 99
+
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Description"
+            name: "description"
+            widget: "text"
+
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
+
+      - name: "intro"
+        label: "Welcome / Intro"
+        file: "docs/intro.md"
+        fields:
+          - label: "Sidebar Position"
+            name: "sidebar_position"
+            widget: "number"
+            value_type: "int"
+            default: 1
+
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Description"
+            name: "description"
+            widget: "text"
+
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+            default: "/intro"
+
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
