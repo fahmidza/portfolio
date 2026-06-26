@@ -1,5 +1,5 @@
 ---
-category: "Data Science & Analytics"
+category: "data-science"
 sidebar_position: 1
 title: "Customer Transaction Clustering"
 description: "Comparative clustering analysis on customer transaction data using 7 different methods including K-Means, GMM, and Deep Clustering."

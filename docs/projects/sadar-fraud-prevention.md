@@ -1,5 +1,5 @@
 ---
-category: "Web Applications"
+category: "web-apps"
 sidebar_position: 1
 title: "SADAR — Fraud Prevention"
 description: "Full-stack digital fraud prevention application with suspicious URL detection, built as a DBS Foundation capstone project."

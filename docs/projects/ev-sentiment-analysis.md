@@ -1,5 +1,5 @@
 ---
-category: "Data Science & Analytics"
+category: "data-science"
 sidebar_position: 3
 title: "Electric Vehicle Sentiment Analysis"
 description: "Sentiment analysis of public opinion on electric vehicles using NLP techniques."

@@ -1,5 +1,5 @@
 ---
-category: "Machine Learning"
+category: "machine-learning"
 sidebar_position: 1
 title: "Earthquake Damage Prediction"
 description: "Predicting building damage levels from earthquakes using CatBoost gradient boosting with SHAP interpretability analysis."

@@ -1,5 +1,5 @@
 ---
-category: "Machine Learning"
+category: "machine-learning"
 sidebar_position: 3
 title: "ML Projects Collection"
 description: "A curated collection of machine learning projects covering classification, regression, and various ML techniques."

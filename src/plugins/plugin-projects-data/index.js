@@ -31,6 +31,19 @@ module.exports = function (context, options) {
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');
       if (!fs.existsSync(projectsDir)) return [];
+
+      // Read category map
+      const catsDir = path.join(context.siteDir, 'src', 'data', 'categories');
+      const catMap = {};
+      if (fs.existsSync(catsDir)) {
+        const catFiles = fs.readdirSync(catsDir).filter(f => f.endsWith('.json'));
+        for (const cf of catFiles) {
+          const cData = JSON.parse(fs.readFileSync(path.join(catsDir, cf), 'utf-8'));
+          if (cData.id && cData.name) {
+            catMap[cData.id] = cData.name;
+          }
+        }
+      }
       
       const files = fs.readdirSync(projectsDir).filter(f => 
         (f.endsWith('.md') || f.endsWith('.mdx')) && !f.startsWith('index')
@@ -40,6 +53,11 @@ module.exports = function (context, options) {
         const content = fs.readFileSync(filePath, 'utf-8');
         const { data } = parseFrontmatter(content);
         
+        // Map category ID to display name if exists
+        if (data.category && catMap[data.category]) {
+          data.category = catMap[data.category];
+        }
+
         return {
           id: file.replace(/\.mdx?$/, ''),
           title: data.title || file.replace(/\.mdx?$/, ''),
