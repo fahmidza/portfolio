@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fahmidza.github.io/myportfolio/blog</id>
     <title>Dzulfahmi Dzakia Ahmad Blog</title>
-    <updated>2025-06-10T00:00:00.000Z</updated>
+    <updated>2026-06-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fahmidza.github.io/myportfolio/blog"/>
     <subtitle>Dzulfahmi Dzakia Ahmad Blog</subtitle>
     <icon>https://fahmidza.github.io/myportfolio/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Aku ingin mencoba menulis persamaan matematika di blog ini]]></title>
+        <id>https://fahmidza.github.io/myportfolio/blog/tes-math</id>
+        <link href="https://fahmidza.github.io/myportfolio/blog/tes-math"/>
+        <updated>2026-06-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[persamaan regresi:]]></summary>
+        <content type="html"><![CDATA[<p>persamaan regresi:</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">y = x_1 + x_2 + c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em"></span><span class="mord mathnormal" style="margin-right:0.0359em">y</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.4306em"></span><span class="mord mathnormal">c</span></span></span></span></p>]]></content>
+        <author>
+            <name>Dzulfahmi Dzakia Ahmad</name>
+            <uri>https://github.com/fahmidza</uri>
+        </author>
+        <category label="math" term="math"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[5 Lessons from Building Machine Learning Models in the Real World]]></title>
         <id>https://fahmidza.github.io/myportfolio/blog/lessons-from-ml-projects</id>

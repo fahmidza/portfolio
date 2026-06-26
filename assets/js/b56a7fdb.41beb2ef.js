@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkportfolio=globalThis.webpackChunkportfolio||[]).push([[5074],{3799(a){a.exports=JSON.parse('{"authors":[{"name":"Dzulfahmi Dzakia Ahmad","title":"Data Scientist & Statistician","url":"https://github.com/fahmidza","imageURL":"https://github.com/fahmidza.png","key":"fahmidza","page":null,"count":2}]}')}}]);
