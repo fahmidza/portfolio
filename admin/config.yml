@@ -1,16 +1,16 @@
 # ============================================================
 # Sveltia CMS Configuration for Dzulfahmi's Portfolio
-# CMS Admin Panel: https://fahmidza.github.io/myportfolio/admin/
+# CMS Admin Panel: https://fahmidza.github.io/portfolio/admin/
 # ============================================================
 
 backend:
   name: github
-  repo: fahmidza/myportfolio
+  repo: fahmidza/portfolio
   branch: main
 
 # Site URL (needed for Docusaurus baseUrl prefix)
-site_url: https://fahmidza.github.io/myportfolio
-display_url: https://fahmidza.github.io/myportfolio
+site_url: https://fahmidza.github.io/portfolio
+display_url: https://fahmidza.github.io/portfolio
 
 # Media files stored in static/img (Docusaurus convention)
 media_folder: "static/img"
@@ -31,7 +31,7 @@ collections:
   # 📝 Blog Posts
   # ----------------------------------------------------------
   - name: "blog"
-    label: "📝 Blog Posts"
+    label: "📝 Blog & Activities"
     label_singular: "Blog Post"
     folder: "blog"
     create: true
