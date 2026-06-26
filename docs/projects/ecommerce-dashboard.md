@@ -1,9 +1,13 @@
 ---
-category: "dashboards"
+category: dashboardss
 sidebar_position: 1
-title: "E-commerce Business Dashboard"
-description: "Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends."
-tags: [dashboard, data-visualization, business-intelligence, python]
+title: E-commerce Business Dashboard
+description: Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends.
+tags:
+  - dashboard
+  - data-visualization
+  - business-intelligence
+  - python
 ---
 
 # E-commerce Business Dashboard Report
@@ -21,7 +25,7 @@ E-commerce businesses generate massive volumes of transactional data daily. With
 ## Tech Stack & Tools
 
 | Tool | Purpose |
-|------|---------|
+| --- | --- |
 | Python | Data processing and analysis |
 | Pandas | Data wrangling and aggregation |
 | Matplotlib & Seaborn | Static visualizations |
@@ -30,18 +34,21 @@ E-commerce businesses generate massive volumes of transactional data daily. With
 ## Methodology & Approach
 
 ### 1. Data Exploration
+
 - Revenue and sales trend analysis
 - Customer segmentation by purchase behavior
 - Product category performance comparison
 - Geographic distribution of orders
 
 ### 2. KPI Development
+
 - Total revenue and growth rate
 - Average order value (AOV)
 - Customer acquisition and retention metrics
 - Product performance rankings
 
 ### 3. Dashboard Design
+
 - Clean, executive-friendly layout
 - Key metrics highlighted with clear visual hierarchy
 - Trend lines for temporal patterns
