@@ -64,58 +64,33 @@ collections:
         name: "body"
         widget: "markdown"
 
+# ----------------------------------------------------------
+  # 🚀 Projects
   # ----------------------------------------------------------
-  # 📊 Data Science & Analytics Projects
-  # ----------------------------------------------------------
-  - name: "data-science"
-    label: "📊 Data Science & Analytics"
-    label_singular: "Data Science Project"
-    folder: "docs/data-science"
+  - name: "projects"
+    label: "🚀 Projects"
+    label_singular: "Project"
+    folder: "docs/projects"
     create: true
     slug: "{{slug}}"
     summary: "{{title}}"
     fields:
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Data Science & Analytics"
+          - "Dashboards & Visualization"
+          - "Machine Learning"
+          - "Web Applications"
+        default: "Data Science & Analytics"
+
       - label: "Sidebar Position"
         name: "sidebar_position"
         widget: "number"
         value_type: "int"
         min: 1
-        hint: "Order in sidebar (1 = first)"
-
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Description"
-        name: "description"
-        widget: "text"
-        hint: "Short description for SEO & project cards"
-
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        hint: "e.g. python, clustering, scikit-learn"
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-
-  # ----------------------------------------------------------
-  # 📈 Dashboards & Visualization Projects
-  # ----------------------------------------------------------
-  - name: "dashboards"
-    label: "📈 Dashboards & Visualization"
-    label_singular: "Dashboard Project"
-    folder: "docs/dashboards"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - label: "Sidebar Position"
-        name: "sidebar_position"
-        widget: "number"
-        value_type: "int"
-        min: 1
+        required: false
 
       - label: "Title"
         name: "title"
@@ -128,72 +103,7 @@ collections:
       - label: "Tags"
         name: "tags"
         widget: "list"
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-
-  # ----------------------------------------------------------
-  # 🤖 Machine Learning Projects
-  # ----------------------------------------------------------
-  - name: "machine-learning"
-    label: "🤖 Machine Learning"
-    label_singular: "ML Project"
-    folder: "docs/machine-learning"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - label: "Sidebar Position"
-        name: "sidebar_position"
-        widget: "number"
-        value_type: "int"
-        min: 1
-
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Description"
-        name: "description"
-        widget: "text"
-
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-
-  # ----------------------------------------------------------
-  # 🌐 Web Application Projects
-  # ----------------------------------------------------------
-  - name: "web-apps"
-    label: "🌐 Web Applications"
-    label_singular: "Web App Project"
-    folder: "docs/web-apps"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - label: "Sidebar Position"
-        name: "sidebar_position"
-        widget: "number"
-        value_type: "int"
-        min: 1
-
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Description"
-        name: "description"
-        widget: "text"
-
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+        hint: "e.g. python, clustering, react"
 
       - label: "Body"
         name: "body"
