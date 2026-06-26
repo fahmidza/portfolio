@@ -40,6 +40,11 @@ collections:
     identifier_field: "name"
     slug: "{{name}}"
     fields:
+      - label: "Category ID"
+        name: "id"
+        widget: "string"
+        hint: "Do not change this once created! e.g. machine-learning"
+
       - label: "Category Name"
         name: "name"
         widget: "string"
@@ -97,7 +102,7 @@ collections:
         widget: "relation"
         collection: "categories"
         search_fields: ["name"]
-        value_field: "name"
+        value_field: "id"
         display_fields: ["name"]
 
       - label: "Sidebar Position"
