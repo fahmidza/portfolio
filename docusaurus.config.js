@@ -13,10 +13,10 @@ async function createConfig() {
   favicon: 'img/favicon.ico',
 
   url: 'https://fahmidza.github.io',
-  baseUrl: '/portfolio/',
+  baseUrl: '/myportfolio/',
 
   organizationName: 'fahmidza',
-  projectName: 'portfolio',
+  projectName: 'myportfolio',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
