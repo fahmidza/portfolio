@@ -9,4 +9,6 @@ tags:
 
 persamaan regresi:
 
-$$ y = x_1 + x_2 + c $$
+$$
+y = x_1 + x_2 + c
+$$
