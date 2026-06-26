@@ -64,10 +64,8 @@ async function createConfig() {
       // KaTeX CSS for math equation rendering
       stylesheets: [
         {
-          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css',
+          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css',
           type: 'text/css',
-          integrity: 'sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn',
-          crossorigin: 'anonymous',
         },
       ],
       colorMode: {
