@@ -660,3 +660,15 @@ article h2 {
   background: var(--ifm-color-primary);
   border: 3px solid var(--color-surface);
 }
+
+/* ---- KaTeX Math Fix ---- */
+/* Force-hide MathML accessibility element that was appearing as plain text */
+.katex .katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
