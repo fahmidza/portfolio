@@ -1,4 +1,5 @@
 ---
+category: "Dashboards & Visualization"
 sidebar_position: 1
 title: "E-commerce Business Dashboard"
 description: "Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends."

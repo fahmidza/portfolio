@@ -1,4 +1,5 @@
 ---
+category: "Data Science & Analytics"
 sidebar_position: 5
 title: "SEM Teacher Burnout Analysis"
 description: "Structural Equation Modeling analysis of burnout symptoms and self-concept among teachers using WarpPLS."

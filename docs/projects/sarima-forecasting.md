@@ -1,4 +1,5 @@
 ---
+category: "Data Science & Analytics"
 sidebar_position: 2
 title: "SARIMA Time Series Forecasting"
 description: "Time series analysis and SARIMA-based forecasting for seasonal data patterns."

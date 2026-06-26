@@ -1,4 +1,5 @@
 ---
+category: "Machine Learning"
 sidebar_position: 2
 title: "Nitrogen Deficiency Detection"
 description: "Deep learning model using EfficientNet_B4 to detect nitrogen deficiency in rice crops with 95.5% F1-score, deployed on Streamlit."

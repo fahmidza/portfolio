@@ -59,6 +59,10 @@ async function createConfig() {
     ],
   ],
 
+  plugins: [
+    './src/plugins/plugin-projects-data'
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -76,12 +80,7 @@ async function createConfig() {
         },
         items: [
           { to: '/', label: 'Home', position: 'left', exact: true },
-          {
-            type: 'docSidebar',
-            sidebarId: 'projectsSidebar',
-            position: 'left',
-            label: 'Projects',
-          },
+          { to: '/docs/projects', label: 'Projects', position: 'left' },
           { to: '/blog', label: 'Blog & Activities', position: 'left' },
           { to: '/docs/about', label: 'About', position: 'left' },
           {
@@ -127,9 +126,9 @@ async function createConfig() {
           {
             title: 'Highlights',
             items: [
-              { label: 'Data Science', to: '/docs/data-science/customer-clustering' },
-              { label: 'Machine Learning', to: '/docs/machine-learning/nitrogen-deficiency-detection' },
-              { label: 'Dashboards', to: '/docs/dashboards/ecommerce-dashboard' },
+              { label: 'Data Science', to: '/docs/projects/customer-clustering' },
+              { label: 'Machine Learning', to: '/docs/projects/nitrogen-deficiency-detection' },
+              { label: 'Dashboards', to: '/docs/projects/ecommerce-dashboard' },
             ],
           },
         ],

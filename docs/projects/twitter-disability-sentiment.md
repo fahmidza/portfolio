@@ -1,4 +1,5 @@
 ---
+category: "Data Science & Analytics"
 sidebar_position: 4
 title: "Twitter Disability Sentiment Analysis"
 description: "Crawling 4,500+ tweets and analyzing public sentiment on disability issues in Indonesia."

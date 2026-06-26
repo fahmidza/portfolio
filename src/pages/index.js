@@ -15,7 +15,7 @@ function HeroSection() {
             Data Scientist & Statistician bridging the gap between raw data and real-world impact. I turn complex datasets into actionable insights through statistical modeling, machine learning, and compelling visualizations.
           </p>
           <div className="hero-cta-group">
-            <Link to="/docs/intro" className="hero-cta hero-cta--primary">
+            <Link to="/docs/projects" className="hero-cta hero-cta--primary">
               View Projects
             </Link>
             <Link to="/docs/about" className="hero-cta hero-cta--secondary">

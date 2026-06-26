@@ -1,4 +1,5 @@
 ---
+category: "Dashboards & Visualization"
 sidebar_position: 2
 title: "Renewable Energy Dashboard"
 description: "Analytical dashboard exploring renewable energy potential across Indonesian provinces."

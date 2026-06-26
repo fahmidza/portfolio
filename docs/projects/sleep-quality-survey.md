@@ -1,4 +1,5 @@
 ---
+category: "Data Science & Analytics"
 sidebar_position: 6
 title: "Sleep Quality Survey Analysis"
 description: "Survey-based analysis exploring the relationship between student sleep quality and academic concentration."
