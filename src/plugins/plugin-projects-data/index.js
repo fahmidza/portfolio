@@ -26,7 +26,8 @@ module.exports = function (context, options) {
   return {
     name: 'plugin-projects-data',
     getPathsToWatch() {
-      return [path.join(context.siteDir, 'docs', 'projects', '*.{md,mdx}')];
+      // Windows backslashes crash picomatch, so replace with forward slashes for globs
+      return [path.join(context.siteDir, 'docs', 'projects', '*.{md,mdx}').replace(/\\/g, '/')];
     },
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');

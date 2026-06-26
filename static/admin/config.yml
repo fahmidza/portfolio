@@ -37,8 +37,8 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    identifier_field: "name"
-    slug: "{{name}}"
+    identifier_field: "id"
+    slug: "{{id}}"
     fields:
       - label: "Category ID"
         name: "id"
