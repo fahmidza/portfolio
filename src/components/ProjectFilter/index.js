@@ -3,14 +3,6 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-const CATEGORIES = [
-  'All',
-  'Data Science & Analytics',
-  'Dashboards & Visualization',
-  'Machine Learning',
-  'Web Applications'
-];
-
 export default function ProjectFilter() {
   let pluginData = { projects: [] };
   try {
@@ -20,6 +12,11 @@ export default function ProjectFilter() {
   }
   
   const projects = pluginData?.projects || [];
+
+  const CATEGORIES = useMemo(() => {
+    const cats = new Set(projects.map(p => p.category).filter(Boolean));
+    return ['All', ...Array.from(cats).sort()];
+  }, [projects]);
 
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');

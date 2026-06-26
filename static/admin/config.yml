@@ -28,6 +28,23 @@ slug:
 
 collections:
   # ----------------------------------------------------------
+  # 🏷️ Categories (For Projects)
+  # ----------------------------------------------------------
+  - name: "categories"
+    label: "🏷️ Categories"
+    label_singular: "Category"
+    folder: "src/data/categories"
+    create: true
+    extension: "json"
+    format: "json"
+    identifier_field: "name"
+    slug: "{{name}}"
+    fields:
+      - label: "Category Name"
+        name: "name"
+        widget: "string"
+
+  # ----------------------------------------------------------
   # 📝 Blog Posts
   # ----------------------------------------------------------
   - name: "blog"
@@ -77,13 +94,11 @@ collections:
     fields:
       - label: "Category"
         name: "category"
-        widget: "select"
-        options:
-          - "Data Science & Analytics"
-          - "Dashboards & Visualization"
-          - "Machine Learning"
-          - "Web Applications"
-        default: "Data Science & Analytics"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["name"]
+        value_field: "name"
+        display_fields: ["name"]
 
       - label: "Sidebar Position"
         name: "sidebar_position"
