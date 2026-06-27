@@ -56,6 +56,14 @@ Source: `data_clustering.xlsx`
 - Missing value detection and handling
 - Correlation heatmaps and feature relationships
 
+![](/img/pasted-image-1782570652040.png)
+
+![](/img/pasted-image-1782570662441.png)
+
+![](/img/pasted-image-1782570669605.png)
+
+![](/img/pasted-image-1782570677093.png)
+
 ### 2. Data Preprocessing
 
 - **Outlier handling** using RobustScaler for robustness against extreme values
