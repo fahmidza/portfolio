@@ -1,5 +1,5 @@
 ---
-category: data-analytics
+category: dashboardss
 sidebar_position: 1
 title: Customer Transaction Clustering
 description: Comparative clustering analysis on customer transaction data using 7 different methods including K-Means, GMM, and Deep Clustering.
@@ -45,6 +45,8 @@ The dataset contains customer transaction records with features including:
 - **Merchant location** — Point-of-sale geographic data
 
 Source: `data_clustering.xlsx`
+
+![](/img/pasted-image-1782565851822.png)
 
 ## Methodology & Approach
 
