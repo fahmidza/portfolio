@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkportfolio=globalThis.webpackChunkportfolio||[]).push([[5178],{2975(o){o.exports=JSON.parse('{"tags":[{"label":"Pyhton","permalink":"/portfolio/docs/tags/pyhton","count":1}]}')}}]);
