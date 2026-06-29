@@ -1,0 +1,152 @@
+# ============================================================
+# Sveltia CMS Configuration for Dzulfahmi's Portfolio
+# CMS Admin Panel: https://fahmidza.github.io/portfolio/admin/
+# ============================================================
+
+backend:
+  name: github
+  repo: fahmidza/portfolio
+  branch: main
+
+# Site URL (needed for Docusaurus baseUrl prefix)
+site_url: https://fahmidza.github.io/portfolio
+display_url: https://fahmidza.github.io/portfolio
+
+# Media files stored in static/img (Docusaurus convention)
+media_folder: "static/img"
+public_folder: "/img"
+
+# Slug settings
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+
+collections:
+  # ----------------------------------------------------------
+  # 📝 Blog Posts
+  # ----------------------------------------------------------
+  - name: "blog"
+    label: "📝 Blog & Activities"
+    label_singular: "Blog Post"
+    folder: "blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{commit_date}}"
+    sortable_fields:
+      fields: ["title", "commit_date"]
+    fields:
+      - label: "Slug (URL)"
+        name: "slug"
+        widget: "string"
+        hint: "URL-friendly name, e.g. 'my-new-post'"
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        default: ["fahmidza"]
+        hint: "Author IDs defined in blog/authors.yml"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "e.g. data-science, machine-learning, career"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+# ----------------------------------------------------------
+  # 🚀 Projects
+  # ----------------------------------------------------------
+  - name: "projects"
+    label: "🚀 Projects"
+    label_singular: "Project"
+    folder: "docs/projects"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Sidebar Position"
+        name: "sidebar_position"
+        widget: "number"
+        value_type: "int"
+        min: 1
+        required: false
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        hint: "e.g. python, clustering, react"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  # ----------------------------------------------------------
+  # 📄 Standalone Pages (About Me, Welcome/Intro)
+  # ----------------------------------------------------------
+  - name: "pages"
+    label: "📄 Pages"
+    files:
+      - name: "about"
+        label: "About Me"
+        file: "docs/about.md"
+        fields:
+          - label: "Sidebar Position"
+            name: "sidebar_position"
+            widget: "number"
+            value_type: "int"
+            default: 99
+
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Description"
+            name: "description"
+            widget: "text"
+
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
+
+      - name: "intro"
+        label: "Projects Index & Welcome"
+        file: "docs/projects/index.mdx"
+        extension: "mdx"
+        format: "frontmatter"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Description"
+            name: "description"
+            widget: "text"
+
+          - label: "Hide Table of Contents"
+            name: "hide_table_of_contents"
+            widget: "boolean"
+            default: true
+
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
+            hint: "Do not remove the <ProjectFilter /> component at the bottom."
