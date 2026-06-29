@@ -3,7 +3,7 @@ category: "data-science"
 sidebar_position: 6
 title: "Sleep Quality Survey Analysis"
 description: "Survey-based analysis exploring the relationship between student sleep quality and academic concentration."
-tags: [statistics, survey, research, analysis]
+[statistics, survey, research, analysis]
 ---
 
 # Sleep Quality & Academic Concentration Survey

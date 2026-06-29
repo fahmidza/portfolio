@@ -3,7 +3,7 @@ category: "data-science"
 sidebar_position: 3
 title: "Electric Vehicle Sentiment Analysis"
 description: "Sentiment analysis of public opinion on electric vehicles using NLP techniques."
-tags: [python, nlp, sentiment-analysis, text-mining]
+[python, nlp, sentiment-analysis, text-mining]
 ---
 
 # Electric Vehicle Sentiment Analysis

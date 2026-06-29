@@ -2,8 +2,7 @@
 sidebar_position: 1
 title: Customer Transaction Clustering
 description: Comparative clustering analysis on customer transaction data using 7 different methods including K-Means, GMM, and Deep Clustering.
-tags:
-  - python
+- python
   - clustering
   - unsupervised-learning
   - scikit-learn
