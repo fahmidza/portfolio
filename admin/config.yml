@@ -55,11 +55,6 @@ collections:
         default: ["fahmidza"]
         hint: "Author IDs defined in blog/authors.yml"
 
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        hint: "Ketik tag baru atau yang sudah ada. Jika tag baru, Docusaurus akan memberi warning sampai Anda mendaftarkannya di tags.yml. [Edit Tags Blog di Github](https://github.com/fahmidza/portfolio/edit/main/blog/tags.yml) lalu tunggu sebentar hingga proses build selesai."
-
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -92,8 +87,14 @@ collections:
 
       - label: "Tags"
         name: "tags"
-        widget: "list"
-        hint: "Ketik tag. Jika tag baru, daftarkan di tags.yml agar tidak error. [Edit Tags Project di Github](https://github.com/fahmidza/portfolio/edit/main/docs/tags.yml) dan tunggu proses build selesai."
+        widget: "relation"
+        collection: "settings"
+        file: "project_tags"
+        search_fields: ["tags.*.name"]
+        display_fields: ["tags.*.name"]
+        value_field: "tags.*.name"
+        multiple: true
+        hint: "Pilih tag dari daftar. Untuk menambah tag baru, masuk ke menu '⚙️ Settings & Tags' di sidebar kiri."
 
       - label: "Body"
         name: "body"
@@ -157,24 +158,13 @@ collections:
   - name: "settings"
     label: "⚙️ Settings & Tags"
     files:
-      - name: "blog_tags"
-        label: "📝 Blog Tags (tags.yml)"
-        file: "blog/tags.yml"
-        extension: "yml"
-        format: "raw"
-        fields:
-          - label: "Raw YAML Config"
-            name: "body"
-            widget: "text"
-            hint: "Format:\ntag-slug:\n  label: Tag Name\n  description: Tag description"
-
       - name: "project_tags"
-        label: "🚀 Project Tags (tags.yml)"
-        file: "docs/tags.yml"
-        extension: "yml"
-        format: "raw"
+        label: "🚀 Project Tags"
+        file: "docs/tags-source.yml"
         fields:
-          - label: "Raw YAML Config"
-            name: "body"
-            widget: "text"
-            hint: "Format:\ntag-slug:\n  label: Tag Name\n  description: Tag description"
+          - label: "Daftar Tag"
+            name: "tags"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Nama Tag", name: "name", widget: "string", hint: "e.g. machine-learning, python" }
