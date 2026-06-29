@@ -523,6 +523,16 @@ body {
   border-right: 1px solid var(--color-border) !important;
 }
 
+/* Remove default padding from the menu to fix the top gap */
+.theme-doc-sidebar-menu {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.menu {
+  padding-top: 0 !important;
+}
+
 .menu__link {
   font-size: 0.9rem;
   font-weight: 450;
@@ -719,8 +729,8 @@ article h2 {
    ====================================================== */
 button[class*="collapseSidebarButton"] {
   order: -1 !important;
-  margin-bottom: 15px !important;
-  margin-top: 5px !important;
+  margin-bottom: 8px !important;
+  margin-top: 0 !important;
   border-top: none !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
 }
@@ -731,7 +741,7 @@ button[class*="collapseSidebarButton"] {
 .theme-doc-sidebar-container {
   transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
   will-change: width;
-  overflow: hidden;
+  /* NOTE: overflow:hidden removed — it breaks position:sticky on the sidebar */
 }
 
 /* Animate the main content shifting when sidebar opens/closes */
@@ -740,16 +750,23 @@ main {
 }
 
 /* ======================================================
-   SIDEBAR HEIGHT (75% of screen)
+   SIDEBAR STICKY + HEIGHT
    ====================================================== */
 @media (min-width: 997px) {
-  .theme-doc-sidebar-menu {
-    max-height: 75vh !important;
+  /* Ensure the sidebar inner wrapper is sticky — single scrollable area */
+  .theme-doc-sidebar-container > div {
+    position: sticky !important;
+    top: var(--ifm-navbar-height, 4rem) !important;
+    max-height: calc(100vh - var(--ifm-navbar-height, 4rem)) !important;
     overflow-y: auto !important;
+    padding-top: 0.25rem !important;
+  }
+
+  /* Remove overflow/max-height from menu to avoid a second scrollbar */
+  .theme-doc-sidebar-menu {
+    max-height: none !important;
+    overflow-y: visible !important;
     padding-bottom: 20px !important;
-    /* Fading effect at the bottom so it doesn't look cut off abruptly */
-    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 80px), transparent 100%);
-    mask-image: linear-gradient(to bottom, black calc(100% - 80px), transparent 100%);
   }
 }
 

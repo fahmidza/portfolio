@@ -37,7 +37,7 @@
     to bottom,
     rgba(11, 17, 33, 0) 0%,
     rgba(11, 17, 33, 0.15) 40%,
-    rgba(11, 17, 33, 0.85) 100%
+    rgba(11, 17, 33, 0.6) 100%
   );
   pointer-events: none;
 }
@@ -47,18 +47,20 @@
     to bottom,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.15) 40%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgba(255, 255, 255, 0.6) 100%
   );
 }
 
-/* ---- Hero Content (over the gradient) ---- */
+/* ---- Hero Content (below the image, normal flow) ---- */
 .heroContent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 2.5rem;
+  position: relative;
+  padding: 1.5rem 2.5rem 2rem;
+  background: var(--ifm-background-color, #fff);
   z-index: 2;
+}
+
+[data-theme='dark'] .heroContent {
+  background: var(--ifm-background-color, #0b1121);
 }
 
 .heroCategory {
@@ -73,7 +75,6 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 0.75rem;
-  backdrop-filter: blur(4px);
 }
 
 .heroTitle {
@@ -81,26 +82,24 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: #f1f5f9;
+  color: var(--color-text-primary, #0f172a);
   margin: 0 0 0.75rem 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme='light'] .heroTitle {
-  color: var(--color-text-primary, #0f172a);
-  text-shadow: none;
+[data-theme='dark'] .heroTitle {
+  color: #f1f5f9;
 }
 
 .heroDescription {
   font-size: 1rem;
-  color: #cbd5e1;
+  color: var(--color-text-secondary, #475569);
   line-height: 1.6;
   max-width: 680px;
   margin: 0 0 1rem 0;
 }
 
-[data-theme='light'] .heroDescription {
-  color: var(--color-text-secondary, #475569);
+[data-theme='dark'] .heroDescription {
+  color: #cbd5e1;
 }
 
 .heroTags {
@@ -112,19 +111,19 @@
 .heroTag {
   display: inline-block;
   padding: 0.2rem 0.65rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--color-surface-elevated, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #e2e8f0;
-  backdrop-filter: blur(4px);
+  color: var(--color-text-secondary, #475569);
 }
 
-[data-theme='light'] .heroTag {
-  background: var(--color-surface-elevated, #f8fafc);
-  border-color: var(--color-border, #e2e8f0);
-  color: var(--color-text-secondary, #475569);
+[data-theme='dark'] .heroTag {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  backdrop-filter: blur(4px);
 }
 
 /* ---- Responsive ---- */
