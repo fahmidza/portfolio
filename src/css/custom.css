@@ -538,6 +538,12 @@ body {
   font-weight: 450;
   border-radius: 8px;
   transition: all 0.2s ease;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+}
+
+.menu__list-item {
+  margin-top: 0.15rem !important;
 }
 
 .menu__link--active {
