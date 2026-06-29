@@ -3,7 +3,6 @@ category: "data-science"
 sidebar_position: 2
 title: "SARIMA Time Series Forecasting"
 description: "Time series analysis and SARIMA-based forecasting for seasonal data patterns."
-[python, time-series, sarima, forecasting, statistics]
 ---
 
 # Time Series Analysis & SARIMA Forecasting
