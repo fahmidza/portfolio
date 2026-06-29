@@ -160,6 +160,8 @@ collections:
       - name: "intro"
         label: "Projects Index & Welcome"
         file: "docs/projects/index.mdx"
+        extension: "mdx"
+        format: "frontmatter"
         fields:
           - label: "Title"
             name: "title"
