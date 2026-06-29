@@ -19,7 +19,8 @@
 
   /* Accent */
   --color-accent-blue: #0ea5e9;
-  --color-accent-violet: #0ea5e9; /* Kept for backwards compatibility */
+  --color-accent-violet: #0ea5e9;
+  /* Kept for backwards compatibility */
   --color-accent-emerald: #10b981;
   --color-accent-amber: #f59e0b;
   --color-accent-rose: #f43f5e;
@@ -136,14 +137,22 @@ body {
   width: 200%;
   height: 200%;
   background: radial-gradient(ellipse at 80% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 40%),
-              radial-gradient(ellipse at 20% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 40%);
+    radial-gradient(ellipse at 20% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 40%);
   animation: heroGlow 15s ease-in-out infinite alternate;
 }
 
 @keyframes heroGlow {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-2%, 1%) scale(1.02); }
-  100% { transform: translate(1%, -1%) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-2%, 1%) scale(1.02);
+  }
+
+  100% {
+    transform: translate(1%, -1%) scale(1);
+  }
 }
 
 .hero-container {
@@ -282,14 +291,40 @@ body {
 }
 
 @keyframes floatPill {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.pill-1 { top: 10%; left: -20%; animation-delay: 0s; }
-.pill-2 { top: 40%; right: -25%; animation-delay: 1s; }
-.pill-3 { bottom: 15%; left: -10%; animation-delay: 2s; }
-.pill-4 { bottom: -5%; right: 10%; animation-delay: 1.5s; }
+.pill-1 {
+  top: 10%;
+  left: -20%;
+  animation-delay: 0s;
+}
+
+.pill-2 {
+  top: 40%;
+  right: -25%;
+  animation-delay: 1s;
+}
+
+.pill-3 {
+  bottom: 15%;
+  left: -10%;
+  animation-delay: 2s;
+}
+
+.pill-4 {
+  bottom: -5%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
 
 /* ---- Stats Bar ---- */
 .stats-bar {
@@ -537,8 +572,8 @@ body {
   font-size: 0.9rem;
   font-weight: 450;
   border-radius: 8px;
-  transition: all 0.2s ease;
-  padding-top: 0.35rem !important;
+  transition: all 1s ease;
+  padding-top: 0.5rem !important;
   padding-bottom: 0.35rem !important;
 }
 
@@ -603,7 +638,7 @@ article h2 {
     text-align: center;
     gap: 3rem;
   }
-  
+
   .hero-content-left {
     text-align: center;
     order: 2;
@@ -613,7 +648,7 @@ article h2 {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hero-cta-group {
     justify-content: center;
   }
@@ -645,11 +680,26 @@ article h2 {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
   }
-  
-  .pill-1 { top: -5%; left: -5%; }
-  .pill-2 { top: 20%; right: -15%; }
-  .pill-3 { bottom: 10%; left: -5%; }
-  .pill-4 { bottom: -10%; right: 0%; }
+
+  .pill-1 {
+    top: -5%;
+    left: -5%;
+  }
+
+  .pill-2 {
+    top: 20%;
+    right: -15%;
+  }
+
+  .pill-3 {
+    bottom: 10%;
+    left: -5%;
+  }
+
+  .pill-4 {
+    bottom: -10%;
+    right: 0%;
+  }
 }
 
 /* ---- Admonition Customization ---- */
@@ -731,14 +781,12 @@ article h2 {
 }
 
 /* ======================================================
-   SIDEBAR COLLAPSE BUTTON CUSTOMIZATION (Moved to top)
+   SIDEBAR COLLAPSE BUTTON CUSTOMIZATION
    ====================================================== */
 button[class*="collapseSidebarButton"] {
-  order: -1 !important;
-  margin-bottom: 8px !important;
-  margin-top: 0 !important;
-  border-top: none !important;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  margin-top: 8px !important;
+  border-top: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-bottom: none !important;
 }
 
 /* ======================================================
@@ -759,8 +807,9 @@ main {
    SIDEBAR STICKY + HEIGHT
    ====================================================== */
 @media (min-width: 997px) {
+
   /* Ensure the sidebar inner wrapper is sticky — single scrollable area */
-  .theme-doc-sidebar-container > div {
+  .theme-doc-sidebar-container>div {
     position: sticky !important;
     top: var(--ifm-navbar-height, 4rem) !important;
     max-height: calc(100vh - var(--ifm-navbar-height, 4rem)) !important;
@@ -837,7 +886,7 @@ main {
 /* ======================================================
    PROJECT HERO — Hide default title when hero is present
    ====================================================== */
-.project-hero-active + div h1:first-of-type,
-.project-hero-active ~ h1:first-of-type {
+.project-hero-active+div h1:first-of-type,
+.project-hero-active~h1:first-of-type {
   display: none;
 }
