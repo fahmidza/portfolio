@@ -58,7 +58,7 @@ collections:
       - label: "Tags"
         name: "tags"
         widget: "list"
-        hint: "e.g. data-science, machine-learning, career"
+        hint: "Ketik tag baru atau yang sudah ada. Jika tag baru, Docusaurus akan memberi warning sampai Anda mendaftarkannya di tags.yml. [Edit Tags Blog di Github](https://github.com/fahmidza/portfolio/edit/main/blog/tags.yml) lalu tunggu sebentar hingga proses build selesai."
 
       - label: "Body"
         name: "body"
@@ -93,7 +93,7 @@ collections:
       - label: "Tags"
         name: "tags"
         widget: "list"
-        hint: "e.g. python, clustering, react"
+        hint: "Ketik tag. Jika tag baru, daftarkan di tags.yml agar tidak error. [Edit Tags Project di Github](https://github.com/fahmidza/portfolio/edit/main/docs/tags.yml) dan tunggu proses build selesai."
 
       - label: "Body"
         name: "body"
@@ -150,3 +150,31 @@ collections:
             name: "body"
             widget: "markdown"
             hint: "Do not remove the <ProjectFilter /> component at the bottom."
+
+  # ----------------------------------------------------------
+  # ⚙️ Settings & Tags
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ Settings & Tags"
+    files:
+      - name: "blog_tags"
+        label: "📝 Blog Tags (tags.yml)"
+        file: "blog/tags.yml"
+        extension: "yml"
+        format: "raw"
+        fields:
+          - label: "Raw YAML Config"
+            name: "body"
+            widget: "text"
+            hint: "Format:\ntag-slug:\n  label: Tag Name\n  description: Tag description"
+
+      - name: "project_tags"
+        label: "🚀 Project Tags (tags.yml)"
+        file: "docs/tags.yml"
+        extension: "yml"
+        format: "raw"
+        fields:
+          - label: "Raw YAML Config"
+            name: "body"
+            widget: "text"
+            hint: "Format:\ntag-slug:\n  label: Tag Name\n  description: Tag description"

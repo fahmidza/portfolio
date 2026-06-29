@@ -6,17 +6,36 @@ function parseFrontmatter(content) {
   if (!match) return { data: {} };
   const yamlString = match[1];
   const data = {};
+  let currentKey = null;
+
   yamlString.split(/\r?\n/).forEach(line => {
+    if (line.trim().startsWith('- ') && currentKey) {
+      if (!Array.isArray(data[currentKey])) {
+        data[currentKey] = data[currentKey] ? [data[currentKey]] : [];
+      }
+      let val = line.trim().substring(2).trim();
+      if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+      if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
+      data[currentKey].push(val);
+      return;
+    }
+
     const colonIndex = line.indexOf(':');
     if (colonIndex > -1) {
       const key = line.slice(0, colonIndex).trim();
       let value = line.slice(colonIndex + 1).trim();
-      if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
-      if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
-      if (value.startsWith('[') && value.endsWith(']')) {
-         value = value.slice(1, -1).split(',').map(v => v.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+      currentKey = key;
+      
+      if (value) {
+        if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
+        if (value.startsWith("'") && value.endsWith("'")) value = value.slice(1, -1);
+        if (value.startsWith('[') && value.endsWith(']')) {
+           value = value.slice(1, -1).split(',').map(v => v.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+        }
+        data[key] = value;
+      } else {
+        data[key] = [];
       }
-      data[key] = value;
     }
   });
   return { data };

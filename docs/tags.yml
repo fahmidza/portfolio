@@ -1,0 +1,42 @@
+business-intelligence:
+  label: Business Intelligence
+  description: Business Intelligence related projects.
+clustering:
+  label: Clustering
+  description: Clustering related projects.
+cybersecurity:
+  label: Cybersecurity
+  description: Cybersecurity related projects.
+dashboard:
+  label: Dashboard
+  description: Dashboard related projects.
+data-visualization:
+  label: Data Visualization
+  description: Data Visualization related projects.
+energy:
+  label: Energy
+  description: Energy related projects.
+indonesia:
+  label: Indonesia
+  description: Indonesia related projects.
+keras:
+  label: Keras
+  description: Keras related projects.
+machine-learning:
+  label: Machine Learning
+  description: Machine Learning related projects.
+nlp:
+  label: Nlp
+  description: Nlp related projects.
+python:
+  label: Python
+  description: Python related projects.
+scikit-learn:
+  label: Scikit Learn
+  description: Scikit Learn related projects.
+unsupervised-learning:
+  label: Unsupervised Learning
+  description: Unsupervised Learning related projects.
+web-app:
+  label: Web App
+  description: Web App related projects.
