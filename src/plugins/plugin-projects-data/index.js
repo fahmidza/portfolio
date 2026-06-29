@@ -45,8 +45,11 @@ module.exports = function (context, options) {
   return {
     name: 'plugin-projects-data',
     getPathsToWatch() {
-      const watchPath = path.join(context.siteDir, 'docs', 'projects', '**/*.{md,mdx}');
-      return [watchPath.replace(/\\/g, '/')];
+      return [
+        path.join(context.siteDir, 'docs', 'projects'),
+        path.join(context.siteDir, 'docs', 'tags-source.yml'),
+        path.join(context.siteDir, 'src', 'data', 'categories'),
+      ];
     },
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');

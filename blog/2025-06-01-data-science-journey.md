@@ -20,9 +20,11 @@ My journey began with traditional statistics — hypothesis testing, regression 
 Two experiences transformed my perspective:
 
 ### 1. Leading Komunitas Satria Data UGM
+
 As president of UGM's data community, I led a 27-member team and helped our university achieve **4th place nationally in Satria Data 2024**. Organizing study groups, workshops, and competition prep sessions taught me that data science is as much about **collaboration and communication** as it is about algorithms.
 
 ### 2. My Internship at PT Bina Pertiwi (Astra)
+
 Working as a Data Analyst Intern at an Astra subsidiary was my first real taste of industry data work. Building real-time dashboards in Google Data Studio that actual stakeholders used for decision-making — that's when I understood the gap between academic projects and production-ready analytics.
 
 ## What I've Learned
@@ -42,6 +44,7 @@ After 12+ projects, 6 competition awards, and 2 internships, here are my key tak
 ## What's Next
 
 I'm currently focused on deepening my expertise in:
+
 - **Deep learning** for computer vision and NLP applications
 - **MLOps** for deploying and monitoring models in production
 - **Statistical consulting** for research and business applications
@@ -50,4 +53,4 @@ If you're on a similar journey, feel free to reach out — I'm always happy to c
 
 ---
 
-*Thanks for reading! Browse my [project portfolio](/docs/intro) to see these skills in action.*
+_Thanks for reading! Browse my [project portfolio](/docs/projects) to see these skills in action._

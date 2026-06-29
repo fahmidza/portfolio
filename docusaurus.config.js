@@ -105,7 +105,7 @@ async function createConfig() {
             {
               title: 'Portfolio',
               items: [
-                { label: 'Projects', to: '/docs/intro' },
+                { label: 'Projects', to: '/docs/projects' },
                 { label: 'About Me', to: '/docs/about' },
                 { label: 'Blog & Activities', to: '/blog' },
               ],
