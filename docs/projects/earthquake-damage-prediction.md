@@ -1,11 +1,11 @@
 ---
-category: "machine-learning"
 sidebar_position: 1
-title: "Earthquake Damage Prediction"
-date: 2024-01-01
-description: "Predicting building damage levels from earthquakes using CatBoost gradient boosting with SHAP interpretability analysis."
+title: Earthquake Damage Prediction
+date: 2023-01-30
+description: Predicting building damage levels from earthquakes using CatBoost gradient boosting with SHAP interpretability analysis.
 tags:
-  - Machine Learning
+  - machine-learning
+category: machine-learning
 ---
 
 # Earthquake Building Damage Prediction
@@ -22,15 +22,15 @@ Indonesia sits on the Pacific Ring of Fire, making it highly prone to seismic ac
 
 ## Tech Stack & Tools
 
-| Tool                 | Purpose                                       |
-| -------------------- | --------------------------------------------- |
-| Python               | Core programming language                     |
-| CatBoost             | Gradient boosting classification              |
-| SHAP                 | Model interpretability and feature importance |
-| Pandas & NumPy       | Data processing                               |
-| Scikit-learn         | Preprocessing and evaluation                  |
-| Matplotlib & Seaborn | Visualization                                 |
-| Jupyter Notebook     | Development environment                       |
+| Tool | Purpose |
+| --- | --- |
+| Python | Core programming language |
+| CatBoost | Gradient boosting classification |
+| SHAP | Model interpretability and feature importance |
+| Pandas & NumPy | Data processing |
+| Scikit-learn | Preprocessing and evaluation |
+| Matplotlib & Seaborn | Visualization |
+| Jupyter Notebook | Development environment |
 
 ## Dataset Description
 
@@ -99,11 +99,11 @@ jupyter notebook
 
 ## Challenges & Solutions
 
-| Challenge                             | Solution                                              |
-| ------------------------------------- | ----------------------------------------------------- |
-| High-cardinality categorical features | Leveraged CatBoost's native categorical handling      |
-| Multi-class imbalance                 | Applied class weights and stratified sampling         |
-| Model black-box concern               | SHAP provides transparent, interpretable explanations |
+| Challenge | Solution |
+| --- | --- |
+| High-cardinality categorical features | Leveraged CatBoost's native categorical handling |
+| Multi-class imbalance | Applied class weights and stratified sampling |
+| Model black-box concern | SHAP provides transparent, interpretable explanations |
 
 ## Future Improvements
 
