@@ -1,8 +1,10 @@
 ---
-category: dashboardss
 sidebar_position: 1
 title: E-commerce Business Dashboard
 description: Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends.
+tags:
+  - Dashboard
+category: dashboardss
 ---
 
 # E-commerce Business Dashboard Report
