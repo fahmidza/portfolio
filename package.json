@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "tinacms dev -c \"docusaurus start\"",
-    "build": "tinacms build && docusaurus build",
+    "build": "tinacms build --local && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
