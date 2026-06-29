@@ -1,0 +1,25 @@
+fragment BlogParts on Blog {
+  __typename
+  title
+  authors
+  tags
+  body
+}
+
+fragment ProjectsParts on Projects {
+  __typename
+  sidebar_position
+  title
+  description
+  tags
+  body
+}
+
+fragment PagesParts on Pages {
+  __typename
+  sidebar_position
+  title
+  description
+  hide_table_of_contents
+  body
+}

@@ -50,9 +50,6 @@ export default function ProjectHero() {
       </div>
 
       <div className={styles.heroContent}>
-        {category && (
-          <span className={styles.heroCategory}>{category}</span>
-        )}
         <h1 className={styles.heroTitle}>{title}</h1>
         {description && (
           <p className={styles.heroDescription}>{description}</p>

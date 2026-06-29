@@ -28,28 +28,6 @@ slug:
 
 collections:
   # ----------------------------------------------------------
-  # 🏷️ Categories (For Projects)
-  # ----------------------------------------------------------
-  - name: "categories"
-    label: "🏷️ Categories"
-    label_singular: "Category"
-    folder: "src/data/categories"
-    create: true
-    extension: "json"
-    format: "json"
-    identifier_field: "id"
-    slug: "{{id}}"
-    fields:
-      - label: "Category ID"
-        name: "id"
-        widget: "string"
-        hint: "Do not change this once created! e.g. machine-learning"
-
-      - label: "Category Name"
-        name: "name"
-        widget: "string"
-
-  # ----------------------------------------------------------
   # 📝 Blog Posts
   # ----------------------------------------------------------
   - name: "blog"
@@ -97,14 +75,6 @@ collections:
     slug: "{{slug}}"
     summary: "{{title}}"
     fields:
-      - label: "Category"
-        name: "category"
-        widget: "relation"
-        collection: "categories"
-        search_fields: ["name"]
-        value_field: "id"
-        display_fields: ["name"]
-
       - label: "Sidebar Position"
         name: "sidebar_position"
         widget: "number"
