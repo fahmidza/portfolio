@@ -9,7 +9,9 @@ description: Learn more about Dzulfahmi Dzakia Ahmad
 ## Dzulfahmi Dzakia Ahmad
 
 Passionate about Data Science and Statistical Analysis, with growing experience in R, Python, SPSS, Minitab, EViews, Data Studio, Power BI, and SQL. I enjoy working on data-driven problems, statistical modeling, and building dashboards that support better decision-making.
-  ---
+
+---
+
 
 ## 🎓 Education
 
@@ -30,7 +32,9 @@ _February 2025 — June 2025_ | Remote
 
 - Mastered material through 5+ independent tasks and 1 capstone project, participated in 7+ live sessions for soft skills, English proficiency, study groups, and received mentorship
 - Collaborated with a 6-member cross-functional team (Machine Learning & Front-End/Back-End) on a national capstone project: developed a web app for digital fraud prevention and built a model to detect suspicious URLs
-  ---
+
+---
+
 
 ## 💼 Work Experience
 
@@ -51,7 +55,9 @@ _July 2024_
 - Implemented web scraping techniques using BeautifulSoup, extracting and processing 2+ datasets to improve data accessibility for analysis
 - Deployed a web application for classifying nitrogen deficiency in rice plants using Streamlit
 - Collaborated on 2 research proposals, contributing to analytical methodologies that improved research feasibility and strategic planning
-  ---
+
+---
+
 
 ## 🏆 Achievements
 
@@ -64,7 +70,8 @@ _July 2024_
 | 🏅 **Top 5 Finalist** | Diponegoro Statistics Olympiad, Dokter Data 2024 | Statistics Student Association, Universitas Diponegoro |
 | 🏅 **Best Presentation (Top 6)** | Olimpiade Nasional Statistika, ANAVA #19 2025 | Statistics Student Association, Universitas Gadjah Mada |
 
-  ---
+---
+
 
 ## 🏛️ Leadership
 
@@ -75,7 +82,9 @@ _January 2024 — December 2024_
 - Successfully led Universitas Gadjah Mada to achieve **4th place in the overall championship of Satria Data 2024**, strengthening the university's presence in national-level data competitions
 - Led a 27-member team, improving collaboration efficiency and achieving key milestones
 - Built partnerships with university stakeholders, improving communication & expanding community initiatives
-  ---
+
+---
+
 
 ## 🛠️ Technical Skills
 
@@ -95,7 +104,9 @@ _January 2024 — December 2024_
 - Adaptability & Deadline Management
 - Collaboration & Teamwork
 - Effective Communication & Data Storytelling
-  ---
+
+---
+
 
 ## 📜 Certifications
 
@@ -104,13 +115,17 @@ _January 2024 — December 2024_
 - Belajar Dasar Structured Query Language (SQL) — _Dicoding Indonesia_
 - Belajar Analisis Data dengan Python — _Dicoding Indonesia_
 - Belajar Pengembangan Machine Learning — _Dicoding Indonesia_
-  ---
+
+---
+
 
 ## 🌐 Languages
 
 - **Indonesian:** Native
 - **English:** Professional Working Proficiency
-  ---
+
+---
+
 
 ## 📬 Connect
 
