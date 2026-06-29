@@ -128,11 +128,11 @@ async function createConfig() {
               ],
             },
             {
-              title: 'Highlights',
+              title: 'Popular Tags',
               items: [
-                { label: 'Data Science', to: '/docs/projects/customer-clustering' },
-                { label: 'Machine Learning', to: '/docs/projects/nitrogen-deficiency-detection' },
-                { label: 'Dashboards', to: '/docs/projects/ecommerce-dashboard' },
+                { label: 'Python', to: '/docs/tags/python' },
+                { label: 'Machine Learning', to: '/docs/tags/machine-learning' },
+                { label: 'Dashboard', to: '/docs/tags/dashboard' },
               ],
             },
           ],
