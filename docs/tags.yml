@@ -1,6 +1,8 @@
+machine-learning:
+  label: Machine Learning
 Dashboard:
   label: Dashboard
-Pyhton:
-  label: Pyhton
+Python:
+  label: Python
 R:
   label: R

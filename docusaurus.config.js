@@ -127,14 +127,14 @@ async function createConfig() {
                 },
               ],
             },
-            {
-              title: 'Popular Tags',
-              items: [
-                { label: 'Python', to: '/docs/tags/python' },
-                { label: 'Machine Learning', to: '/docs/tags/machine-learning' },
-                { label: 'Dashboard', to: '/docs/tags/dashboard' },
-              ],
-            },
+                {
+                  title: 'Popular Tags',
+                  items: [
+                    { label: 'Python', to: '/docs/tags/python' },
+                    { label: 'Machine Learning', to: '/docs/tags/machine-learning' },
+                    { label: 'Dashboard', to: '/docs/tags/dashboard' },
+                  ],
+                },
           ],
           copyright: `© ${new Date().getFullYear()} Dzulfahmi Dzakia Ahmad. Built with Docusaurus.`,
         },

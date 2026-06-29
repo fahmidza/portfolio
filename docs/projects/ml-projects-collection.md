@@ -4,6 +4,8 @@ sidebar_position: 3
 title: "ML Projects Collection"
 date: 2024-01-01
 description: "A curated collection of machine learning projects covering classification, regression, and various ML techniques."
+tags:
+  - machine-learning
 ---
 
 # Machine Learning Projects Collection
