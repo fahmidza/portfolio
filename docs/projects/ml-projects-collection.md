@@ -1,11 +1,11 @@
 ---
-category: "machine-learning"
-sidebar_position: 3
-title: "ML Projects Collection"
+sidebar_position: 1
+title: ML Projects Collection
 date: 2024-01-01
-description: "A curated collection of machine learning projects covering classification, regression, and various ML techniques."
+description: A curated collection of machine learning projects covering classification, regression, and various ML techniques.
 tags:
   - machine-learning
+category: machine-learning
 ---
 
 # Machine Learning Projects Collection
@@ -18,13 +18,13 @@ This repository serves as a **learning portfolio** of various machine learning i
 
 ## Tech Stack & Tools
 
-| Tool                 | Purpose                      |
-| -------------------- | ---------------------------- |
-| Python               | Core programming language    |
-| Scikit-learn         | ML algorithms and evaluation |
-| Pandas & NumPy       | Data handling                |
-| Matplotlib & Seaborn | Visualization                |
-| Jupyter Notebook     | Implementation environment   |
+| Tool | Purpose |
+| --- | --- |
+| Python | Core programming language |
+| Scikit-learn | ML algorithms and evaluation |
+| Pandas & NumPy | Data handling |
+| Matplotlib & Seaborn | Visualization |
+| Jupyter Notebook | Implementation environment |
 
 ## Topics Covered
 
