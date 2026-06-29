@@ -98,19 +98,6 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 - **Cluster 2:** Strengthen loyalty through incentive programs and engagement
 - **Cluster 3:** Retain premium customers with exclusive services and VIP treatment
 
-## How to Reproduce
-
-```bash
-# Clone the repository
-git clone https://github.com/fahmidza/Analisis-Clustering-untuk-Data-Transaksi-Pelanggan.git
-
-# Install dependencies
-pip install pandas numpy scikit-learn keras scipy matplotlib seaborn
-
-# Run the notebook
-jupyter notebook "Sintaks Clustering.ipynb"
-```
-
 ## Challenges & Solutions
 
 | Challenge | Solution |
