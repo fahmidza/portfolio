@@ -207,7 +207,8 @@ body {
   color: var(--ifm-color-primary);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
-  min-height: 2.2rem; /* Keep layout stable during typing */
+  min-height: 2.2rem;
+  /* Keep layout stable during typing */
 }
 
 .typewriter-cursor {
@@ -217,8 +218,15 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-description {
@@ -327,11 +335,19 @@ body {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate(0px, 0px);
+  }
+
+  25% {
+    transform: translate(6px, -8px);
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translate(-2px, -12px);
+  }
+
+  75% {
+    transform: translate(-8px, -4px);
   }
 }
 
@@ -347,23 +363,102 @@ body {
   object-fit: contain;
 }
 
-.text-pill-0 { top: 10%; left: -20%; animation-delay: 0s; }
-.text-pill-1 { top: 40%; right: -25%; animation-delay: 1s; }
-.text-pill-2 { bottom: 15%; left: -10%; animation-delay: 2s; }
-.text-pill-3 { bottom: -5%; right: 10%; animation-delay: 1.5s; }
+.text-pill-0 {
+  top: 10%;
+  left: -20%;
+  animation-delay: 0s;
+}
 
-.tool-pill-0 { top: -10%; left: 20%; animation-delay: 0.3s; }
-.tool-pill-1 { top: -5%; right: 10%; animation-delay: 0.7s; }
-.tool-pill-2 { top: 25%; left: -30%; animation-delay: 1.2s; }
-.tool-pill-3 { top: 15%; right: -35%; animation-delay: 1.8s; }
-.tool-pill-4 { top: 55%; left: -30%; animation-delay: 2.3s; }
-.tool-pill-5 { top: 70%; right: -30%; animation-delay: 2.9s; }
-.tool-pill-6 { bottom: -12%; left: 0%; animation-delay: 3.5s; }
-.tool-pill-7 { bottom: -12%; right: -5%; animation-delay: 4.1s; }
-.tool-pill-8 { bottom: 25%; right: -35%; animation-delay: 4.8s; }
-.tool-pill-9 { top: -15%; right: -10%; animation-delay: 5.2s; }
-.tool-pill-10 { bottom: 5%; left: -35%; animation-delay: 5.7s; }
-.tool-pill-11 { bottom: -20%; right: 25%; animation-delay: 6.1s; }
+.text-pill-1 {
+  top: 40%;
+  right: -25%;
+  animation-delay: 1s;
+}
+
+.text-pill-2 {
+  bottom: 15%;
+  left: -10%;
+  animation-delay: 2s;
+}
+
+.text-pill-3 {
+  bottom: -5%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+.tool-pill-0 {
+  top: -10%;
+  left: 20%;
+  animation-delay: 0.3s;
+}
+
+.tool-pill-1 {
+  top: -5%;
+  right: 10%;
+  animation-delay: 0.7s;
+}
+
+.tool-pill-2 {
+  top: 35%;
+  left: -35%;
+  animation-delay: 1.2s;
+}
+
+.tool-pill-3 {
+  top: 15%;
+  right: -35%;
+  animation-delay: 1.8s;
+}
+
+.tool-pill-4 {
+  top: 55%;
+  left: -30%;
+  animation-delay: 2.3s;
+}
+
+.tool-pill-5 {
+  top: 60%;
+  right: -25%;
+  animation-delay: 2.9s;
+}
+
+.tool-pill-6 {
+  bottom: -15%;
+  left: 10%;
+  animation-delay: 3.5s;
+}
+
+.tool-pill-7 {
+  bottom: -25%;
+  right: -15%;
+  animation-delay: 4.1s;
+}
+
+.tool-pill-8 {
+  bottom: 10%;
+  right: -40%;
+  animation-delay: 4.8s;
+}
+
+.tool-pill-9 {
+  top: -20%;
+  right: -15%;
+  animation-delay: 5.2s;
+}
+
+.tool-pill-10 {
+  bottom: -5%;
+  left: -35%;
+  animation-delay: 5.7s;
+}
+
+.tool-pill-11 {
+  bottom: -20%;
+  right: 25%;
+  animation-delay: 6.1s;
+}
+
 /* ---- Stats Bar ---- */
 .stats-bar {
   display: flex;
@@ -749,8 +844,8 @@ article h2 {
 
 @media (max-width: 768px) {
   .hero-image-wrapper {
-    width: 260px;
-    height: 260px;
+    width: 200px;
+    height: 200px;
   }
 
   .hero-title {
@@ -759,67 +854,151 @@ article h2 {
 
   /* Shrink text pills */
   .floating-pill {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.75rem;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.65rem;
   }
 
   /* Turn tool pills into small circles without text */
   .tool-pill-name {
     display: none;
   }
+
   .tool-pill {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     padding: 0;
     justify-content: center;
     border-radius: 50%;
   }
+
   .tool-pill-icon {
     margin: 0;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
-  /* Reposition Text Pills (Corners) */
-  .text-pill-0 { top: 5%; left: -15%; }
-  .text-pill-1 { top: 5%; right: -15%; }
-  .text-pill-2 { bottom: 5%; left: -15%; }
-  .text-pill-3 { bottom: 5%; right: -15%; }
+  /* Reposition Text Pills (Corners, perfectly symmetrical) */
+  .text-pill-0 {
+    top: 5%;
+    left: -15%;
+  }
 
-  /* Reposition ALL 12 Tool Pills (Constellation around the image) */
-  .tool-pill-0 { top: -15%; left: 45%; }     /* 12:00 - Top Center */
-  .tool-pill-1 { top: -10%; right: 15%; }    /* 1:00 - Above Data Science */
-  .tool-pill-2 { top: 25%; right: -25%; }    /* 2:00 - Below Data Science */
-  .tool-pill-3 { top: 45%; right: -30%; }    /* 3:00 - Right Center */
-  .tool-pill-4 { bottom: 25%; right: -25%; } /* 4:00 - Above Statistics */
-  .tool-pill-5 { bottom: -10%; right: 15%; } /* 5:00 - Below Statistics */
-  .tool-pill-6 { bottom: -15%; left: 45%; }  /* 6:00 - Bottom Center */
-  .tool-pill-7 { bottom: -10%; left: 15%; }  /* 7:00 - Below Analytics */
-  .tool-pill-8 { bottom: 25%; left: -25%; }  /* 8:00 - Above Analytics */
-  .tool-pill-9 { top: 45%; left: -30%; }     /* 9:00 - Left Center */
-  .tool-pill-10 { top: 25%; left: -25%; }    /* 10:00 - Below Machine Learning */
-  .tool-pill-11 { top: -10%; left: 15%; }    /* 11:00 - Above Machine Learning */
-  
-  .tool-pill-6, .tool-pill-7, .tool-pill-8, .tool-pill-9, .tool-pill-10, .tool-pill-11 {
-    display: flex; /* Restore visibility */
+  .text-pill-1 {
+    top: 5%;
+    right: -15%;
+  }
+
+  .text-pill-2 {
+    bottom: 5%;
+    left: -15%;
+  }
+
+  .text-pill-3 {
+    bottom: 5%;
+    right: -15%;
+  }
+
+  /* Reposition ALL 12 Tool Pills (Perfectly Balanced Constellation) */
+  .tool-pill-0 {
+    top: -20%;
+    left: calc(50% - 18px);
+  }
+
+  /* 12:00 */
+  .tool-pill-1 {
+    top: -15%;
+    right: -15%;
+  }
+
+  /* 1:00 */
+  .tool-pill-2 {
+    top: 25%;
+    right: -50%;
+    left: auto;
+  }
+
+  /* 2:00 (Moved closer to Excel) */
+  .tool-pill-3 {
+    top: 40%;
+    right: -55%;
+  }
+
+  /* 3:00 */
+  .tool-pill-4 {
+    bottom: 22%;
+    right: -45%;
+    top: auto;
+    left: auto;
+  }
+
+  /* 4:00 */
+  .tool-pill-5 {
+    bottom: -15%;
+    right: -15%;
+    top: auto;
+  }
+
+  /* 5:00 */
+  .tool-pill-6 {
+    bottom: -20%;
+    left: calc(50% - 18px);
+  }
+
+  /* 6:00 */
+  .tool-pill-7 {
+    bottom: -15%;
+    left: -15%;
+    right: auto;
+  }
+
+  /* 7:00 */
+  .tool-pill-8 {
+    bottom: 22%;
+    left: -45%;
+    right: auto;
+  }
+
+  /* 8:00 */
+  .tool-pill-9 {
+    top: 40%;
+    left: -55%;
+    right: auto;
+  }
+
+  /* 9:00 */
+  .tool-pill-10 {
+    top: 15%;
+    left: -45%;
+    bottom: auto;
+  }
+
+  /* 10:00 (Pushed up) */
+  .tool-pill-11 {
+    top: -15%;
+    left: -15%;
+    bottom: auto;
+    right: auto;
+  }
+
+  /* 11:00 */
+
+  .tool-pill-6,
+  .tool-pill-7,
+  .tool-pill-8,
+  .tool-pill-9,
+  .tool-pill-10,
+  .tool-pill-11 {
+    display: flex;
+    /* Restore visibility */
   }
 }
 
 @media (max-width: 480px) {
-  .hero-image-wrapper {
-    width: 200px;
-    height: 200px;
+
+  /* No overrides needed, 200px fits perfectly */
+  .hero-title {
+    font-size: 2rem;
   }
-  
-  /* Give them a bit more outward push on very small screens, 
-     but scale text to avoid overflow */
-  .floating-pill {
-    transform: scale(0.9);
-  }
-  .text-pill-0 { top: 2%; left: -18%; }
-  .text-pill-1 { top: 2%; right: -18%; }
-  .text-pill-2 { bottom: 2%; left: -18%; }
-  .text-pill-3 { bottom: 2%; right: -18%; }
 }
 
 /* ---- Admonition Customization ---- */
@@ -1006,6 +1185,7 @@ body {
   .navbar .google-translate-container {
     display: none !important;
   }
+
   .menu__list .google-translate-container {
     display: flex !important;
     padding: 0.5rem 1rem;
@@ -1017,17 +1197,21 @@ body {
 :root {
   --ifm-navbar-sidebar-width: 100vw;
 }
+
 /* Styling dropdown button google translate */
 .goog-te-gadget {
   font-family: var(--ifm-font-family-base) !important;
-  color: transparent !important; /* menyembunyikan teks 'Powered by Google' */
-  font-size: 0px !important; /* menghilangkan ruang kosong teks */
+  color: transparent !important;
+  /* menyembunyikan teks 'Powered by Google' */
+  font-size: 0px !important;
+  /* menghilangkan ruang kosong teks */
 }
 
-.goog-te-gadget > span,
-.goog-te-gadget > a {
+.goog-te-gadget>span,
+.goog-te-gadget>a {
   display: none !important;
 }
+
 .goog-te-gadget .goog-te-combo {
   padding: 4px 8px;
   border-radius: 6px;
@@ -1068,7 +1252,7 @@ body {
    MOBILE TOC (Table of Contents) REFINEMENT
    ====================================================== */
 /* Batasi tinggi daftar menu "On this page" di HP agar tidak memakan seluruh layar saat di-expand */
-.theme-doc-toc-mobile .clean-btn ~ .margin-top--md,
+.theme-doc-toc-mobile .clean-btn~.margin-top--md,
 .theme-doc-toc-mobile ul.menu__list {
   max-height: 35vh;
   overflow-y: auto;
@@ -1093,12 +1277,13 @@ body {
 }
 
 .resume-modal-content {
-  background-color: #ffffff; /* Explicit white for light mode */
+  background-color: #ffffff;
+  /* Explicit white for light mode */
   width: 90vw;
   max-width: 1000px;
   height: 90vh;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1115,7 +1300,8 @@ body {
   align-items: center;
   padding: 0.5rem 0.5rem;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  background-color: #f5f6f7; /* Light mode header background */
+  background-color: #f5f6f7;
+  /* Light mode header background */
 }
 
 [data-theme='dark'] .resume-modal-header {
@@ -1170,9 +1356,12 @@ body {
   flex: 1;
   width: 100%;
   height: 100%;
-  background-color: #525659; /* Default PDF viewer background */
-  overflow: auto; /* Required for iOS iframe scrolling */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  background-color: #525659;
+  /* Default PDF viewer background */
+  overflow: auto;
+  /* Required for iOS iframe scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling on iOS */
   position: relative;
 }
 
@@ -1184,8 +1373,13 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1193,6 +1387,7 @@ body {
     width: 95vw;
     height: 95vh;
   }
+
   .resume-modal-header h3 {
     font-size: 1.1rem;
   }
