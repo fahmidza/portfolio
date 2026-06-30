@@ -14,3 +14,13 @@ Data Studio:
   label: Data Studio
 SQL:
   label: SQL
+Statistical Analyst:
+  label: Statistical Analyst
+Clustering:
+  label: Clustering
+Classification:
+  label: Classification
+Data Analysis:
+  label: Data Analysis
+Data Visualization:
+  label: Data Visualization

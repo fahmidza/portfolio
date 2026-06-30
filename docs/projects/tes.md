@@ -6,7 +6,7 @@ tags:
   - Python
 report_files:
   - label: Jupyter Notebook
-    file: /img/[Clustering] Submission Akhir BMLP_Dzulfahmi Dzakia Ahmad (2).html
+    file: /clustering-submission.html
 ---
 
 tes
