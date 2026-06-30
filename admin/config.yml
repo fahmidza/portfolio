@@ -103,6 +103,8 @@ collections:
           - label: "File"
             name: "file"
             widget: "file"
+            media_folder: "/static/files"
+            public_folder: "/files"
             hint: "Upload file (HTML, PDF, ZIP, CSV, PY, dll.)"
 
   - name: "projects_intro"
