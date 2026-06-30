@@ -1,3 +1,11 @@
 {
-  "resume_pdf": "/img/CV_Dzulfahmi Dzakia Ahmad.tex"
+  "resume_pdf": "/img/CV_Dzulfahmi Dzakia Ahmad.tex",
+  "hero_roles": [
+    "Data Enthusiast",
+    "Statistician",
+    "Data Scientist",
+    "Data Analyst",
+    "Machine Learning Engineer"
+  ],
+  "hero_description": "tes"
 }
