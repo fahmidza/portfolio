@@ -71,7 +71,7 @@ function ResumeModal() {
         </div>
         <div className="resume-modal-body">
           <iframe 
-            src={fullResumeUrl} 
+            src={ExecutionEnvironment.canUseDOM && window.innerWidth <= 768 ? `https://docs.google.com/gview?url=${encodeURIComponent('https://fahmidza.github.io/portfolio' + resumeUrl)}&embedded=true` : fullResumeUrl} 
             className="resume-modal-iframe" 
             title="Resume PDF Viewer"
           />
