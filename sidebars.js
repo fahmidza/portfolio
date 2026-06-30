@@ -29,8 +29,8 @@ function generateFlatSidebar() {
   // Construct the final flat sidebar
   return [
     {
-      type: 'doc',
-      id: 'projects/index',
+      type: 'link',
+      href: '/docs/projects',
       label: '👋 Projects Home',
     },
     {

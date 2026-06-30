@@ -2,6 +2,7 @@
 sidebar_position: 99
 title: About Me
 description: Learn more about Dzulfahmi Dzakia Ahmad
+toc_max_heading_level: 2
 ---
 
 # About Me

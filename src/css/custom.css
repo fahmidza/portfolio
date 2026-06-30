@@ -92,12 +92,17 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- Navbar ---- */
 .navbar {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Hanya terapkan efek glassmorphism (backdrop-filter) jika mobile sidebar TIDAK terbuka.
+   Jika diterapkan saat sidebar terbuka, backdrop-filter akan membuat 'containing block' 
+   yang membuat sidebar terpotong karena dibatasi oleh tinggi navbar (60px). */
+.navbar:not(.navbar-sidebar--show) {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--color-border);
-  transition: all 0.3s ease;
 }
 
 .navbar__title {
@@ -842,41 +847,7 @@ button[class*="collapseSidebarButton"] {
   border-bottom: none !important;
 }
 
-/* ======================================================
-   SIDEBAR COLLAPSE ANIMATION
-   ====================================================== */
-.theme-doc-sidebar-container {
-  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  will-change: width;
-  /* NOTE: overflow:hidden removed — it breaks position:sticky on the sidebar */
-}
-
-/* Animate the main content shifting when sidebar opens/closes */
-main {
-  transition: max-width 0.4s cubic-bezier(0.25, 1, 0.5, 1), width 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.4s ease, margin 0.4s ease !important;
-}
-
-/* ======================================================
-   SIDEBAR STICKY + HEIGHT
-   ====================================================== */
-@media (min-width: 997px) {
-
-  /* Ensure the sidebar inner wrapper is sticky — single scrollable area */
-  .theme-doc-sidebar-container>div {
-    position: sticky !important;
-    top: var(--ifm-navbar-height, 4rem) !important;
-    max-height: calc(100vh - var(--ifm-navbar-height, 4rem)) !important;
-    overflow-y: auto !important;
-    padding-top: 0.25rem !important;
-  }
-
-  /* Remove overflow/max-height from menu to avoid a second scrollbar */
-  .theme-doc-sidebar-menu {
-    max-height: none !important;
-    overflow-y: visible !important;
-    padding-bottom: 20px !important;
-  }
-}
+/* Cleaned up broken sidebar CSS */
 
 /* ======================================================
    TOOLS SECTION (Homepage)
@@ -1029,4 +1000,14 @@ body {
 .linkedin-icon {
   transform: scale(1.35);
   transform-origin: center;
+}
+
+/* ======================================================
+   MOBILE TOC (Table of Contents) REFINEMENT
+   ====================================================== */
+/* Batasi tinggi daftar menu "On this page" di HP agar tidak memakan seluruh layar saat di-expand */
+.theme-doc-toc-mobile .clean-btn ~ .margin-top--md,
+.theme-doc-toc-mobile ul.menu__list {
+  max-height: 35vh;
+  overflow-y: auto;
 }

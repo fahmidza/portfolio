@@ -38,7 +38,7 @@ async function createConfig() {
         /** @type {import('@docusaurus/preset-classic').Options} */
         ({
           docs: {
-            sidebarPath: './sidebars.js',
+            sidebarPath: false,
             remarkPlugins: [remarkMath],
             rehypePlugins: [rehypeKatex],
           },

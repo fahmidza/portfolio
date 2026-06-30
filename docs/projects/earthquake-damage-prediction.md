@@ -4,7 +4,7 @@ title: Earthquake Damage Prediction
 date: 2023-01-30
 description: Predicting building damage levels from earthquakes using CatBoost gradient boosting with SHAP interpretability analysis.
 tags:
-  - machine-learning
+  - Machine Learning
 category: machine-learning
 ---
 
