@@ -159,6 +159,27 @@ collections:
   - name: "settings"
     label: "⚙️ Settings & Tags"
     files:
+      - label: "Site Settings"
+        name: "site_settings"
+        file: "data/settings.json"
+        fields:
+          - label: "Resume/CV (PDF)"
+            name: "resume_pdf"
+            widget: "file"
+            hint: "Upload your CV/Resume here (PDF format). This will update the 'Download CV' button."
+            multiple: false
+          
+          - label: "Hero Roles (Animasi Teks)"
+            name: "hero_roles"
+            widget: "list"
+            hint: "Daftar role/pekerjaan yang akan muncul bergantian di animasi halaman depan."
+            field: {label: "Role", name: "role", widget: "string"}
+          
+          - label: "Hero Description"
+            name: "hero_description"
+            widget: "text"
+            hint: "Deskripsi singkat tentang Anda yang muncul di halaman utama (Home) di bawah peran/role animasi."
+
       - name: "project_tags"
         label: "🚀 Project Tags"
         file: "docs/tags-source.yml"

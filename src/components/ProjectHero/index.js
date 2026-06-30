@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 import ImageCarousel from '../ImageCarousel';
 
 const PLACEHOLDER_IMAGE = '/portfolio/img/projects/placeholder.svg';
@@ -40,29 +41,40 @@ export default function ProjectHero() {
   }, []);
 
   return (
-    <div className={styles.heroWrapper} ref={heroRef}>
-      <div className={styles.heroImageContainer}>
-        <ImageCarousel 
-          images={images} 
-          alt={title} 
-          className={styles.heroImage}
-        />
-        <div className={styles.heroOverlay} />
+    <>
+      <div className={styles.heroNav}>
+        <Link to="/docs/projects" className={styles.backButton}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to Projects
+        </Link>
       </div>
 
-      <div className={styles.heroContent}>
-        <h1 className={styles.heroTitle}>{title}</h1>
-        {description && (
-          <p className={styles.heroDescription}>{description}</p>
-        )}
-        {tags.length > 0 && (
-          <div className={styles.heroTags}>
-            {tags.map((tag) => (
-              <span key={tag} className={styles.heroTag}>{tag}</span>
-            ))}
-          </div>
-        )}
+      <div className={styles.heroWrapper} ref={heroRef}>
+        <div className={styles.heroImageContainer}>
+          <ImageCarousel 
+            images={images} 
+            alt={title} 
+            className={styles.heroImage}
+          />
+          <div className={styles.heroOverlay} />
+        </div>
+
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>{title}</h1>
+          {description && (
+            <p className={styles.heroDescription}>{description}</p>
+          )}
+          {tags.length > 0 && (
+            <div className={styles.heroTags}>
+              {tags.map((tag) => (
+                <span key={tag} className={styles.heroTag}>{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

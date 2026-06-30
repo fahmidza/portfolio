@@ -1,3 +1,40 @@
+/* ---- Navigation ---- */
+.heroNav {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--ifm-color-emphasis-100);
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.backButton:hover {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateX(-4px);
+}
+
+[data-theme='dark'] .backButton {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+}
+
+[data-theme='dark'] .backButton:hover {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
 /* ---- Project Hero Banner ---- */
 .heroWrapper {
   position: relative;
