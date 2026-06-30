@@ -28,7 +28,97 @@ slug:
 
 collections:
   # ----------------------------------------------------------
-  # 📝 Blog Posts
+  # 🏠 Home
+  # ----------------------------------------------------------
+  - name: "home"
+    label: "🏠 Home"
+    files:
+      - label: "Home Settings"
+        name: "home_settings"
+        file: "data/home.json"
+        fields:
+          - label: "Hero Roles (Animasi Teks)"
+            name: "hero_roles"
+            widget: "list"
+            hint: "Daftar role/pekerjaan yang akan muncul bergantian di animasi halaman depan."
+            field: {label: "Role", name: "role", widget: "string"}
+          
+          - label: "Hero Description"
+            name: "hero_description"
+            widget: "text"
+            hint: "Deskripsi singkat tentang Anda yang muncul di halaman utama (Home) di bawah peran/role animasi."
+
+  # ----------------------------------------------------------
+  # 🚀 Projects
+  # ----------------------------------------------------------
+  - name: "projects"
+    label: "🚀 Projects"
+    label_singular: "Project"
+    folder: "docs/projects"
+    extension: "md"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+
+      - label: "Tags"
+        name: "tags"
+        widget: "relation"
+        collection: "site_settings"
+        file: "project_tags"
+        search_fields: ["tags.*.name"]
+        display_fields: ["tags.*.name"]
+        value_field: "tags.*.name"
+        multiple: true
+        hint: "Pilih tag dari daftar. Untuk menambah tag baru, masuk ke menu '⚙️ Site Setting' di sidebar kiri."
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  - name: "projects_intro"
+    label: "🚀 Projects (Welcome Text)"
+    files:
+      - name: "intro"
+        label: "Welcome Text & Intro"
+        file: "docs/projects/index.mdx"
+        extension: "mdx"
+        format: "frontmatter"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Description"
+            name: "description"
+            widget: "text"
+
+          - label: "Hide Table of Contents"
+            name: "hide_table_of_contents"
+            widget: "boolean"
+            default: true
+
+          - label: "Body"
+            name: "body"
+            widget: "markdown"
+            hint: "Do not remove the <ProjectFilter /> component at the bottom."
+
+  # ----------------------------------------------------------
+  # 📝 Blog & Activities
   # ----------------------------------------------------------
   - name: "blog"
     label: "📝 Blog & Activities"
@@ -66,55 +156,14 @@ collections:
         name: "body"
         widget: "markdown"
 
-# ----------------------------------------------------------
-  # 🚀 Projects
   # ----------------------------------------------------------
-  - name: "projects"
-    label: "🚀 Projects"
-    label_singular: "Project"
-    folder: "docs/projects"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-
-      - label: "Description"
-        name: "description"
-        widget: "text"
-
-      - label: "Tags"
-        name: "tags"
-        widget: "relation"
-        collection: "settings"
-        file: "project_tags"
-        search_fields: ["tags.*.name"]
-        display_fields: ["tags.*.name"]
-        value_field: "tags.*.name"
-        multiple: true
-        hint: "Pilih tag dari daftar. Untuk menambah tag baru, masuk ke menu '⚙️ Settings & Tags' di sidebar kiri."
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-
+  # 👤 About Me
   # ----------------------------------------------------------
-  # 📄 Standalone Pages (About Me, Welcome/Intro)
-  # ----------------------------------------------------------
-  - name: "pages"
-    label: "📄 Pages"
+  - name: "about"
+    label: "👤 About Me"
     files:
       - name: "about"
-        label: "About Me"
+        label: "About Me Content"
         file: "docs/about.md"
         fields:
           - label: "Title"
@@ -129,38 +178,24 @@ collections:
             name: "body"
             widget: "markdown"
 
-      - name: "intro"
-        label: "Projects Index & Welcome"
-        file: "docs/projects/index.mdx"
-        extension: "mdx"
-        format: "frontmatter"
-        fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-
-          - label: "Description"
-            name: "description"
-            widget: "text"
-
-          - label: "Hide Table of Contents"
-            name: "hide_table_of_contents"
-            widget: "boolean"
-            default: true
-
-          - label: "Body"
-            name: "body"
-            widget: "markdown"
-            hint: "Do not remove the <ProjectFilter /> component at the bottom."
-
   # ----------------------------------------------------------
-  # ⚙️ Settings & Tags
+  # ⚙️ Site Setting
   # ----------------------------------------------------------
-  - name: "settings"
-    label: "⚙️ Settings & Tags"
+  - name: "site_settings"
+    label: "⚙️ Site Setting"
     files:
+      - label: "CV / Resume"
+        name: "cv_settings"
+        file: "data/site.json"
+        fields:
+          - label: "Resume/CV (PDF)"
+            name: "resume_pdf"
+            widget: "file"
+            hint: "Upload your CV/Resume here. This will update the 'Download CV' button."
+            multiple: false
+
       - name: "project_tags"
-        label: "🚀 Project Tags"
+        label: "Project Tags"
         file: "docs/tags-source.yml"
         fields:
           - label: "Daftar Tag"
