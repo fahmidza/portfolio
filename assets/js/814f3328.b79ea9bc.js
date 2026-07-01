@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkportfolio=globalThis.webpackChunkportfolio||[]).push([[7472],{5513(t){t.exports=JSON.parse('{"title":"Recent Posts","items":[{"title":"tesblog","permalink":"/portfolio/blog/tesblog","unlisted":false,"date":"2026-07-01T00:00:00.000Z"}]}')}}]);
