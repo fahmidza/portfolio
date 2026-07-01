@@ -57,6 +57,7 @@ async function createConfig() {
             postsPerPage: 5,
             blogSidebarTitle: 'Recent Posts',
             blogSidebarCount: 'ALL',
+            onUntruncatedBlogPosts: 'ignore',
             remarkPlugins: [remarkMath],
             rehypePlugins: [rehypeKatex],
           },

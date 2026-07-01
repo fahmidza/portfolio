@@ -35,7 +35,10 @@ module.exports = function (context, options) {
           autoImages.push(imgPath);
         }
         
-        blogDataMap[file] = {
+        let slug = file.replace(/\.mdx?$/, '');
+        slug = slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+        
+        blogDataMap[slug] = {
           images: autoImages,
         };
       });
