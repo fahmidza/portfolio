@@ -198,21 +198,143 @@
       }
 
       /**
+       * Get the main markdown textarea
+       */
+      function getMainTextarea() {
+        var textareas = document.querySelectorAll('textarea');
+        var mainTa = null;
+        var maxLen = -1;
+        textareas.forEach(function(ta) {
+          if (ta.value.length > maxLen) {
+            maxLen = ta.value.length;
+            mainTa = ta;
+          }
+        });
+        return mainTa;
+      }
+
+      /**
+       * Toggle the custom Outline TOC
+       */
+      function toggleOutline() {
+        var existing = document.getElementById('cms-custom-toc');
+        if (existing) {
+          existing.parentNode.removeChild(existing);
+          return;
+        }
+
+        var ta = getMainTextarea();
+        if (!ta) return alert('Editor text not found!');
+
+        var lines = ta.value.split('\n');
+        var headings = [];
+        lines.forEach(function(line, idx) {
+          var match = line.match(/^(#{1,6})\s+(.*)/);
+          if (match) {
+            headings.push({
+              level: match[1].length,
+              text: match[2],
+              line: idx
+            });
+          }
+        });
+
+        if (headings.length === 0) return alert('No headings found in the document.');
+
+        var tocPanel = document.createElement('div');
+        tocPanel.id = 'cms-custom-toc';
+        tocPanel.style.position = 'fixed';
+        tocPanel.style.background = 'rgba(255, 255, 255, 0.95)';
+        tocPanel.style.backdropFilter = 'blur(10px)';
+        tocPanel.style.border = '1px solid #d0d0d8';
+        tocPanel.style.borderRadius = '8px';
+        tocPanel.style.padding = '12px';
+        tocPanel.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+        tocPanel.style.maxHeight = '300px';
+        tocPanel.style.overflowY = 'auto';
+        tocPanel.style.zIndex = '999999';
+        tocPanel.style.minWidth = '250px';
+
+        // Calculate position relative to toolbar
+        if (toolbarRef) {
+          var rect = toolbarRef.getBoundingClientRect();
+          tocPanel.style.bottom = (window.innerHeight - rect.top + 10) + 'px';
+          tocPanel.style.left = (rect.left + 12) + 'px';
+        } else {
+          tocPanel.style.bottom = '50px';
+          tocPanel.style.left = '20px';
+        }
+
+        var title = document.createElement('div');
+        title.innerHTML = '<strong>📑 Document Outline</strong>';
+        title.style.marginBottom = '8px';
+        title.style.paddingBottom = '8px';
+        title.style.borderBottom = '1px solid #eee';
+        title.style.color = '#333';
+        title.style.display = 'flex';
+        title.style.justifyContent = 'space-between';
+        
+        var closeBtn = document.createElement('span');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.style.fontSize = '16px';
+        closeBtn.style.lineHeight = '1';
+        closeBtn.onclick = toggleOutline;
+        title.appendChild(closeBtn);
+        
+        tocPanel.appendChild(title);
+
+        headings.forEach(function(h) {
+          var item = document.createElement('div');
+          item.textContent = h.text;
+          item.style.marginLeft = ((h.level - 1) * 12) + 'px';
+          item.style.padding = '4px 0';
+          item.style.fontSize = '12px';
+          item.style.color = '#555';
+          item.style.cursor = 'pointer';
+          item.style.whiteSpace = 'nowrap';
+          item.style.overflow = 'hidden';
+          item.style.textOverflow = 'ellipsis';
+          item.style.maxWidth = '300px';
+          
+          item.addEventListener('mouseover', function() { item.style.color = '#0ea5e9'; });
+          item.addEventListener('mouseout', function() { item.style.color = '#555'; });
+          
+          item.addEventListener('click', function() {
+            if (ta) {
+              var lineHeight = parseInt(window.getComputedStyle(ta).lineHeight) || 20;
+              ta.scrollTop = h.line * lineHeight;
+              ta.focus();
+            }
+          });
+          tocPanel.appendChild(item);
+        });
+
+        document.body.appendChild(tocPanel);
+      }
+
+      /**
        * Create the sticky toolbar element.
        */
       function createToolbar() {
         var bar = document.createElement('div');
         bar.className = 'cms-img-toolbar';
         bar.innerHTML =
-          '<span class="cms-label">\u{1F5BC}\uFE0F Images</span>' +
+          '<button class="cms-img-btn" data-action="outline" style="border-color: #0ea5e9; color: #0ea5e9; margin-right: 8px;">📑 Outline</button>' +
+          '<span class="cms-label">\u{1F5BC}\uFE0F Images:</span>' +
           '<button class="cms-img-btn" data-action="expand">\u25BC Expand All</button>' +
-          '<button class="cms-img-btn" data-action="collapse">\u25B6 Collapse All</button>' +
+          '<button class="cms-img-btn" data-action="collapse">\u25B6 Collapse</button>' +
           '<span class="cms-img-count"></span>';
 
         bar.addEventListener('click', function(e) {
           var btn = e.target.closest('.cms-img-btn');
           if (!btn) return;
-          toggleAllImages(btn.dataset.action === 'collapse');
+          var action = btn.dataset.action;
+          if (action === 'outline') {
+            toggleOutline();
+          } else {
+            toggleAllImages(action === 'collapse');
+          }
         });
 
         return bar;
@@ -225,30 +347,22 @@
         var pane = findEditorPane();
 
         if (!pane) {
-          // No editor pane with images — clean up toolbar
-          if (toolbarRef) {
-            removeToolbar();
-          }
+          if (toolbarRef) removeToolbar();
           return;
         }
 
         var buttons = findImageToggleButtons(pane);
-        console.log('[CMS-ImageToolbar] scan: pane found, buttons:', buttons.length);
-
-        if (buttons.length > 0) {
-          if (!toolbarRef || toolbarParent !== pane) {
-            removeToolbar();
-            toolbarRef = createToolbar();
-            toolbarParent = pane;
-            pane.appendChild(toolbarRef);
-            console.log('[CMS-ImageToolbar] Toolbar inserted!', buttons.length, 'images found');
-          }
-          updateToolbarCount();
-        } else {
-          if (toolbarRef) {
-            toolbarRef.style.display = 'none';
-          }
+        
+        // We now want the toolbar to show ALWAYS if we are in an editor pane, 
+        // so the user can use the Outline feature even if there are no images.
+        if (!toolbarRef || toolbarParent !== pane) {
+          removeToolbar();
+          toolbarRef = createToolbar();
+          toolbarParent = pane;
+          pane.appendChild(toolbarRef);
         }
+        
+        updateToolbarCount();
       }
 
       /**
