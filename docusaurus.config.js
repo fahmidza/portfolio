@@ -72,6 +72,7 @@ async function createConfig() {
     ],
     plugins: [
       './src/plugins/plugin-projects-data',
+      './src/plugins/plugin-blog-data',
       function googleTranslatePlugin() {
         return {
           name: 'google-translate-plugin',
