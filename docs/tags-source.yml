@@ -12,3 +12,5 @@ tags:
   - name: Classification
   - name: Data Analysis
   - name: Data Visualization
+  - name: Sentiment Analysis
+  - name: Data Scraping
