@@ -90,7 +90,7 @@ collections:
         name: "body"
         widget: "markdown"
 
-      - label: "📎 Report Files (Lampiran)"
+      - label: "Report Files (Lampiran)"
         name: "report_files"
         widget: "list"
         required: false
@@ -154,24 +154,30 @@ collections:
         date_format: "YYYY-MM-DD"
         time_format: false
 
-      - label: "Slug (URL)"
-        name: "slug"
-        widget: "string"
-        hint: "URL-friendly name, e.g. 'my-new-post'"
-
       - label: "Title"
         name: "title"
         widget: "string"
 
-      - label: "Authors"
-        name: "authors"
-        widget: "list"
-        default: ["fahmidza"]
-        hint: "Author IDs defined in blog/authors.yml"
-
       - label: "Body"
         name: "body"
         widget: "markdown"
+
+      - label: "Report Files (Lampiran)"
+        name: "report_files"
+        widget: "list"
+        required: false
+        hint: "Upload file laporan, kode, atau dokumen pendukung. File HTML & PDF akan otomatis di-embed."
+        fields:
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            hint: "Judul file, misalnya 'Laporan Analisis' atau 'Source Code'"
+          - label: "File"
+            name: "file"
+            widget: "file"
+            media_folder: "/static/files"
+            public_folder: "/files"
+            hint: "Upload file (HTML, PDF, ZIP, CSV, dll.)"
 
   # ----------------------------------------------------------
   # 👤 About Me
