@@ -11,3 +11,7 @@ report_files:
 ---
 
 tesblog2 isinya
+
+![](/img/favicon.ico)
+
+![](/img/pasted-image-1782888869089.png)
