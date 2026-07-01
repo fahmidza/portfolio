@@ -44,10 +44,15 @@ function getFileExtension(filePath) {
   return filePath.split('.').pop().toLowerCase();
 }
 
+const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'];
+const DOC_EXTENSIONS = ['html', 'htm', 'pdf'];
+const EMBEDDABLE_EXTENSIONS = [...DOC_EXTENSIONS, ...IMAGE_EXTENSIONS];
+
 function AttachmentItem({ item, index }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const ext = getFileExtension(item.file);
-  const isEmbeddable = ['html', 'htm', 'pdf'].includes(ext);
+  const isEmbeddable = EMBEDDABLE_EXTENSIONS.includes(ext);
+  const isImage = IMAGE_EXTENSIONS.includes(ext);
   const resolvedUrl = useBaseUrl(item.file);
 
   if (isEmbeddable) {
@@ -56,7 +61,7 @@ function AttachmentItem({ item, index }) {
         {/* Header bar: label + action buttons */}
         <div className="project-attachment-item__header">
           <h3 className="project-attachment-item__label">
-            {ext === 'pdf' ? '📄' : '🌐'} {item.label || `File ${index + 1}`}
+            {isImage ? '🖼️' : ext === 'pdf' ? '📄' : '🌐'} {item.label || `File ${index + 1}`}
           </h3>
           <div className="project-attachment-item__actions">
             <a
@@ -80,14 +85,23 @@ function AttachmentItem({ item, index }) {
 
         {/* Collapsible embed area */}
         {isExpanded && (
-          <div className="project-attachment-item__embed">
-            <iframe
-              src={resolvedUrl}
-              title={item.label || `Attachment ${index + 1}`}
-              className="project-attachment-item__iframe"
-              loading="lazy"
-              allowFullScreen
-            />
+          <div className="project-attachment-item__embed" style={isImage ? { padding: '1rem', textAlign: 'center', background: 'var(--color-surface-elevated)' } : {}}>
+            {isImage ? (
+              <img
+                src={resolvedUrl}
+                alt={item.label || `Attachment ${index + 1}`}
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
+                loading="lazy"
+              />
+            ) : (
+              <iframe
+                src={resolvedUrl}
+                title={item.label || `Attachment ${index + 1}`}
+                className="project-attachment-item__iframe"
+                loading="lazy"
+                allowFullScreen
+              />
+            )}
           </div>
         )}
       </div>
@@ -118,7 +132,7 @@ export function ProjectAttachments({ reportFiles }) {
 
   if (!reportFiles || reportFiles.length === 0) return null;
 
-  const embeddableCount = reportFiles.filter(f => ['html', 'htm', 'pdf'].includes(getFileExtension(f.file))).length;
+  const embeddableCount = reportFiles.filter(f => EMBEDDABLE_EXTENSIONS.includes(getFileExtension(f.file))).length;
 
   return (
     <div className="project-attachments">

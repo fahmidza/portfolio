@@ -52,7 +52,7 @@ async function createConfig() {
           },
           blog: {
             showReadingTime: true,
-            blogTitle: 'Insights & Reflections',
+            blogTitle: 'Blog & Activities',
             blogDescription: 'Thoughts on data science, machine learning, and the journey of turning data into impact.',
             postsPerPage: 5,
             blogSidebarTitle: 'Recent Posts',
