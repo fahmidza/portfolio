@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.3.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		h1 { margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h1.western { font-weight: bold; font-size: 18pt; font-family: "Liberation Sans", sans-serif }
+		h1.cjk { font-weight: bold; font-size: 18pt; font-family: "AR PL SungtiL GB" }
+		h1.ctl { font-weight: bold; font-family: "Noto Sans Devanagari"; font-size: 18pt }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h2.western { font-weight: bold; font-size: 16pt; font-family: "Liberation Sans", sans-serif }
+		h2.cjk { font-weight: bold; font-size: 16pt; font-family: "AR PL SungtiL GB" }
+		h2.ctl { font-weight: bold; font-family: "Noto Sans Devanagari"; font-size: 16pt }
+		h3 { margin-top: 0.1in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h3.western { font-weight: bold; font-size: 14pt; font-family: "Liberation Sans", sans-serif }
+		h3.cjk { font-weight: bold; font-size: 14pt; font-family: "AR PL SungtiL GB" }
+		h3.ctl { font-weight: bold; font-family: "Noto Sans Devanagari"; font-size: 14pt }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+		td p { widows: 0; orphans: 0; background: transparent }
+		th p { widows: 0; text-align: center; orphans: 0; font-weight: bold; background: transparent }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h1 class="western">
+Laporan Proyek Machine Learning - Prediksi Harga Saham PT Astra Agro
+Lestari Tbk. (AALI.JK) Menggunakan Model Hybrid CNN-LSTM</h1>
+<h2 class="western">Domain Proyek</h2>
+<h1 class="western">Laporan Proyek Machine Learning - Prediksi Harga
+Saham PT Astra Agro Lestari Tbk. (AALI.JK) Menggunakan Model Hybrid
+CNN-LSTM</h1>
+<h2 class="western">Domain Proyek</h2>
+<p>Harga saham merupakan salah satu indikator penting dalam dunia
+keuangan dan investasi. Pergerakannya yang fluktuatif dipengaruhi
+oleh berbagai faktor, baik internal perusahaan maupun eksternal
+seperti kondisi ekonomi makro, sentimen pasar, dan berita global.
+Memprediksi harga saham dengan akurat adalah tantangan besar namun
+sangat diminati karena potensi keuntungannya bagi investor dan
+perencana keuangan. Ketidakpastian yang tinggi dalam pasar saham
+membuat prediksi menjadi tugas yang kompleks, seringkali memerlukan
+analisis data historis yang mendalam dan model prediksi yang canggih.</p>
+<p>Proyek ini berfokus pada prediksi harga penutupan saham PT Astra
+Agro Lestari Tbk. (AALI.JK), salah satu perusahaan perkebunan kelapa
+sawit terbesar di Indonesia. Sebagai perusahaan yang bergerak di
+sektor agribisnis dengan komoditas utama kelapa sawit, harga saham
+AALI.JK tidak hanya dipengaruhi oleh faktor pasar umum, tetapi juga
+oleh harga komoditas global dan kinerja fundamental perusahaan.
+Informasi spesifik perusahaan, seperti kinerja keuangan dan
+pengumuman dividen, juga menjadi faktor penting yang mempengaruhi
+valuasi dan pergerakan harga sahamnya. Sebagai contoh, PT Astra Agro
+Lestari Tbk (AALI) mengumumkan rencana pembagian dividen final
+sebesar Rp184 per saham untuk tahun buku 2024 yang akan dibayarkan
+pada 28 Mei 2025, menyusul RUPS pada 28 April 2025. Keputusan ini
+diambil setelah perusahaan mencatat pertumbuhan laba yang dapat
+diatribusikan kepada pemilik perusahaan sebesar 8,67% menjadi Rp1,14
+triliun pada tahun 2024 dibandingkan tahun 2023. Kejadian seperti ini
+dapat mempengaruhi sentimen investor dan, dengan demikian, harga
+saham AALI.JK.</p>
+<p><b>Mengapa dan Bagaimana Masalah Ini Harus Diselesaikan?</b>&nbsp;Kemampuan
+untuk memprediksi pergerakan harga saham AALI.JK dapat memberikan
+beberapa manfaat:</p>
+<ul>
+	<li><p><b>Investor</b>: Membantu investor individu maupun
+	institusional dalam mengambil keputusan investasi yang lebih
+	terinformasi, seperti kapan waktu terbaik untuk membeli, menahan,
+	atau menjual saham, sehingga dapat memaksimalkan potensi keuntungan
+	dan meminimalkan risiko.</p></li>
+	<li><p><b>Manajemen Risiko</b>: Perusahaan atau manajer investasi
+	dapat menggunakan prediksi ini sebagai bagian dari strategi
+	manajemen risiko portofolio mereka.</p></li>
+	<li><p><b>Perencanaan Keuangan Perusahaan</b>: Meskipun bukan fokus
+	utama, pemahaman tren harga saham dapat memberikan masukan bagi
+	perusahaan terkait sentimen pasar terhadap kinerja mereka.</p></li>
+</ul>
+<p>Masalah prediksi harga saham ini dapat diselesaikan dengan
+memanfaatkan data historis harga saham dan menerapkan teknik <i>machine
+learning</i>, khususnya <i>deep learning</i> yang mampu menangkap
+pola non-linear dan dependensi temporal yang kompleks dalam data time
+series. Model seperti Long Short-Term Memory (LSTM) dan Convolutional
+Neural Network (CNN) telah menunjukkan hasil yang menjanjikan dalam
+tugas prediksi time series keuangan dan ekonomi.</p>
+<p><b>Referensi Terkait:</b></p>
+<ol>
+	<li><p>Nabhani, A. (2025, April 29). <i>Astra Agro Lestari Bagikan
+	Dividen Rp184</i>. Neraca.co.id.
+	<a href="https://www.neraca.co.id/article/218374/astra-agro-lestari-bagikan-dividen-rp184">https://www.neraca.co.id/article/218374/astra-agro-lestari-bagikan-dividen-rp184</a></p></li>
+	<li><p>Yahoo Finance. (Diakses pada 26 Mei 2025). <i>Astra Agro
+	Lestari Tbk. (AALI.JK) Historical Data</i>.
+	<a href="https://finance.yahoo.com/quote/AALI.JK/history">https://finance.yahoo.com/quote/AALI.JK/history</a></p></li>
+</ol>
+<hr/>
+
+<h2 class="western">Business Understanding</h2>
+<p>Proses klarifikasi masalah dalam proyek ini bertujuan untuk
+mendefinisikan dengan jelas tantangan yang dihadapi dan tujuan yang
+ingin dicapai dalam memprediksi harga saham AALI.JK.</p>
+<h3 class="western">Problem Statements</h3>
+<ol>
+	<li><p><b>Volatilitas Tinggi Harga Saham</b>: Harga saham AALI.JK,
+	seperti saham lainnya, menunjukkan volatilitas yang signifikan dan
+	dipengaruhi oleh banyak faktor tak terduga, sehingga sulit untuk
+	diprediksi secara akurat menggunakan metode konvensional.</p></li>
+	<li><p><b>Keterbatasan Model Linier</b>: Model statistik tradisional
+	atau model linier mungkin tidak cukup untuk menangkap pola
+	non-linear yang kompleks dan dependensi jangka panjang dalam data
+	deret waktu harga saham.</p></li>
+	<li><p><b>Kebutuhan Optimasi Model</b>: Untuk mendapatkan performa
+	prediksi yang optimal dari model <i>deep learning</i>, diperlukan
+	proses penyesuaian <i>hyperparameter</i> yang sistematis, karena
+	parameter <i>default</i> atau yang dipilih secara manual mungkin
+	tidak menghasilkan kinerja terbaik.</p></li>
+</ol>
+<h3 class="western">Goals</h3>
+<ol>
+	<li><p><b>Mengembangkan Model Prediksi</b>: Membangun sebuah model
+	<i>deep learning</i> (hybrid CNN-LSTM) yang mampu mempelajari pola
+	dari data historis harga penutupan saham AALI.JK untuk melakukan
+	prediksi harga di masa depan.</p></li>
+	<li><p><b>Meningkatkan Akurasi Prediksi</b>: Mengoptimalkan
+	arsitektur dan <i>hyperparameter</i> model CNN-LSTM melalui teknik
+	<i>hyperparameter tuning</i> untuk meningkatkan akurasi prediksi
+	dibandingkan dengan model <i>baseline</i> atau konfigurasi awal.</p></li>
+	<li><p><b>Evaluasi Kinerja Model</b>: Mengevaluasi kinerja model
+	prediksi yang dikembangkan menggunakan metrik evaluasi yang sesuai
+	untuk masalah regresi pada data <i>time series</i>, seperti Mean
+	Squared Error (MSE), Root Mean Squared Error (RMSE), dan Mean
+	Absolute Error (MAE).</p></li>
+</ol>
+<h3 class="western">Solution Statements</h3>
+<p>Untuk mencapai tujuan di atas, diajukan beberapa solusi
+pendekatan:</p>
+<ol>
+	<li><p><b>Pengembangan Model CNN-LSTM Dasar</b>: Mengimplementasikan
+	model <i>hybrid</i> CNN-LSTM sebagai solusi awal. Lapisan CNN akan
+	bertugas mengekstraksi fitur lokal dari data sekuensial harga saham,
+	sementara lapisan LSTM akan menangkap dependensi temporal jangka
+	panjang dari fitur-fitur tersebut. Kinerja model ini akan dievaluasi
+	menggunakan metrik seperti MSE, RMSE, dan MAE pada data uji.</p></li>
+	<li><p><b>Optimasi Model melalui Hyperparameter Tuning</b>:
+	Melakukan penyempurnaan terhadap model CNN-LSTM dasar dengan teknik
+	<i>hyperparameter tuning</i> menggunakan KerasTuner. Proses ini akan
+	mencari kombinasi <i>hyperparameter</i> optimal (seperti jumlah unit
+	LSTM, jumlah filter CNN, ukuran kernel, <i>dropout rate</i>, dan
+	<i>learning rate</i>) untuk meminimalkan <i>validation loss</i>
+	(misalnya, MSE). Kinerja model yang telah dioptimalkan kemudian akan
+	dibandingkan dengan model dasar untuk menunjukkan peningkatan.</p></li>
+</ol>
+<p>Kedua solusi ini akan diukur performanya menggunakan metrik
+evaluasi kuantitatif (MSE, RMSE, MAE) pada data harga saham AALI.JK
+yang sebenarnya setelah proses <i>inverse scaling</i>.</p>
+<hr/>
+
+<h2 class="western">Data Understanding</h2>
+<p>Data yang digunakan dalam proyek ini adalah data historis harga
+saham harian <b>PT Astra Agro Lestari Tbk.</b> dengan kode ticker
+<b>AALI.JK</b>. Data ini diperoleh dari <b>Yahoo Finance</b> [3],
+diunduh menggunakan bantuan skrip R, dan kemudian disimpan dalam
+format file CSV bernama <font face="Liberation Mono, monospace">df_with_date.csv</font>.
+Dataset ini mencakup periode waktu dari tanggal <b>5 April 2001
+hingga 23 Mei 2025</b>, yang terdiri dari <b>6002 baris data (sampel)</b>
+sebelum dilakukan pemisahan data latih dan uji.</p>
+<p>Awalnya, dataset mentah yang dimuat terdiri dari 8 kolom. Namun,
+untuk proyek prediksi harga penutupan ini, hanya dua fitur utama yang
+dipilih dan digunakan, yaitu tanggal pencatatan dan harga penutupan
+saham.</p>
+<h3 class="western">Variabel-variabel pada Dataset (Awal)</h3>
+<p>Dataset awal yang dimuat dari file CSV (<font face="Liberation Mono, monospace">df_with_date.csv</font>)
+memiliki variabel-variabel sebagai berikut:</p>
+<ul>
+	<li><p><b>Unnamed: 0</b>: Indeks baris dari file CSV.</p></li>
+	<li><p><b>Date</b>: Tanggal pencatatan data harga saham.</p></li>
+	<li><p><b>AALI.JK.Open</b>: Harga pembukaan saham AALI.JK pada hari
+	tersebut.</p></li>
+	<li><p><b>AALI.JK.High</b>: Harga tertinggi saham AALI.JK yang
+	dicapai pada hari tersebut.</p></li>
+	<li><p><b>AALI.JK.Low</b>: Harga terendah saham AALI.JK yang dicapai
+	pada hari tersebut.</p></li>
+	<li><p><b>AALI.JK.Close</b>: Harga penutupan saham AALI.JK pada hari
+	tersebut. <b>Variabel ini adalah target prediksi (label) dalam
+	proyek ini.</b></p></li>
+	<li><p><b>AALI.JK.Volume</b>: Jumlah lembar saham AALI.JK yang
+	diperdagangkan pada hari tersebut.</p></li>
+	<li><p><b>AALI.JK.Adjusted</b>: Harga penutupan saham AALI.JK yang
+	telah disesuaikan dengan aksi korporasi (misalnya, dividen atau
+	pemecahan saham).</p></li>
+</ul>
+<h3 class="western">Fitur yang Digunakan untuk Pemodelan</h3>
+<p>Setelah memuat data, dilakukan seleksi fitur untuk memfokuskan
+analisis pada prediksi harga penutupan:</p>
+<ul>
+	<li><p><b>Date</b>: Digunakan untuk pengurutan data secara
+	kronologis dan pembagian data menjadi set latih dan uji. Kolom ini
+	juga dikonversi ke format datetime.</p></li>
+	<li><p><b>AALI.JK.Close</b>: Harga penutupan saham AALI.JK, yang
+	menjadi variabel dependen atau target yang akan diprediksi oleh
+	model.</p></li>
+</ul>
+<p>Dengan demikian, dataset yang digunakan untuk pemodelan lebih
+lanjut terdiri dari 6002 baris dan 2 kolom ini.</p>
+<h3 class="western">Analisis Data Eksploratif (EDA) dan Visualisasi
+Data</h3>
+<p>Untuk memahami karakteristik data harga saham AALI.JK, langkah
+awal adalah melakukan visualisasi data historis harga penutupannya.
+Plot deret waktu dari harga penutupan saham AALI.JK dibuat untuk
+mengamati pola pergerakannya dari waktu ke waktu.</p>
+<p><img src="/input/import-1/image.png" name="Image1" align="absmiddle" width="33" height="33" border="0"/>
+</p>
+<p>Grafik menunjukkan bahwa harga penutupan saham AALJK mengalami
+kenaikan signifikan dari awal hingga sekitar tanggal ke-2500,
+mencapai puncak di atas 30.000. Setelah itu, terjadi fluktuasi tajam
+dengan tren penurunan yang cukup konsisten hingga mendekati tanggal
+ke-6000, di mana harga stabil di kisaran 5.000. Pola ini
+mengindikasikan volatilitas tinggi pada periode tengah, yang dapat
+menjadi fokus untuk analisis lebih lanjut terkait faktor eksternal
+atau internal yang memengaruhinya.</p>
+<h2 class="western">Data Preparation</h2>
+<p>Proses persiapan data sangat krusial untuk memastikan model <i>deep
+learning</i> dapat belajar secara efektif. Berikut adalah tahapan
+persiapan data yang dilakukan:</p>
+<ol>
+	<li><p><b>Memuat Data</b>: Data harga saham AALI.JK yang telah
+	diunduh (dalam format .csv) dimuat ke dalam DataFrame pandas.</p>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">file_path = '/content/drive/My Drive/path/to/your/df_with_date.csv' # Tergantung pada lokasi file <br/>
+df = pd.read_csv(file_path)</pre></li>
+	<li><p><b>Konversi Tipe Data Tanggal</b>: Kolom 'Date' dikonversi
+	menjadi tipe data datetime untuk memudahkan manipulasi berbasis
+	waktu.</p>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">df['Date'] = pd.to_datetime(df['Date'])</pre></li>
+	<li><p><b>Seleksi Fitur</b>: Hanya kolom yang relevan untuk
+	prediksi, yaitu 'Date' dan harga penutupan ('AALI.JK.Close'), yang
+	dipilih untuk analisis lebih lanjut.</p>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">df = df[['Date', 'AALI.JK.Close']]</pre></li>
+	<li><p><b>Pembagian Data (Train-Test Split)</b>: Data dibagi menjadi
+	dua set: data latih (misalnya, 70%) dan data uji (misalnya, 30%).
+	Pembagian ini dilakukan secara kronologis (berdasarkan waktu) untuk
+	menjaga dependensi temporal, di mana data yang lebih lama digunakan
+	untuk melatih model dan data yang lebih baru digunakan untuk
+	menguji.</p>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">train_size = int(len(df) * 0.7)<br/>
+train_data_df = df[:train_size]<br/>
+test_data_df = df[train_size:]</pre></li>
+	<li><p><b>Pengaturan Indeks</b>: Kolom 'Date' dijadikan sebagai
+	indeks DataFrame untuk data latih dan data uji.</p>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">train_data = train_data_df.set_index('Date')<br/>
+test_data = test_data_df.set_index('Date')</pre></li>
+	<li><p style="margin-bottom: 0in"><b>Normalisasi Data (Feature
+	Scaling)</b>: Harga penutupan saham dinormalisasi menggunakan
+	<font face="Liberation Mono, monospace">MinMaxScaler</font> dari
+	scikit-learn. Nilai-nilai diubah skalanya menjadi rentang antara 0
+	dan 1.</p>
+	<ul>
+		<li><p><b>Alasan</b>: Model jaringan saraf, termasuk LSTM dan CNN,
+		seringkali bekerja lebih baik dan konvergen lebih cepat ketika
+		fitur input dinormalisasi. Ini juga membantu mencegah gradien yang
+		meledak atau menghilang.</p></li>
+	</ul>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">scaler = MinMaxScaler(feature_range=(0, 1))<br/>
+# Pastikan mengambil hanya kolom harga untuk di-scale<br/>
+train_prices_to_scale = train_data[['AALI.JK.Close']]<br/>
+test_prices_to_scale = test_data[['AALI.JK.Close']]<br/>
+train_data_scaled = scaler.fit_transform(train_prices_to_scale)<br/>
+test_data_scaled = scaler.transform(test_prices_to_scale)</pre></li>
+	<li><p style="margin-bottom: 0in"><b>Pembuatan Sekuens dengan
+	</b><font face="Liberation Mono, monospace"><b>TimeseriesGenerator</b></font>:
+	Data yang sudah dinormalisasi diubah menjadi sekuens input dan
+	target yang sesuai untuk model LSTM/CNN. <font face="Liberation Mono, monospace">TimeseriesGenerator</font>
+	dari Keras digunakan untuk membuat batch data sekuensial.</p>
+	<ul>
+		<li><p><b>Alasan</b>: Model LSTM memerlukan input dalam bentuk
+		sekuens (misalnya, harga saham <font face="Liberation Mono, monospace">n</font>
+		hari terakhir untuk memprediksi harga hari ke-<font face="Liberation Mono, monospace">n+1</font>).
+		<font face="Liberation Mono, monospace">TimeseriesGenerator</font>
+		mengotomatiskan proses ini.</p></li>
+		<li><p>Parameter <font face="Liberation Mono, monospace">look_back</font>
+		(misalnya 30 hari) menentukan panjang setiap sekuens input.</p></li>
+	</ul>
+	<pre style="margin-bottom: 0.2in; background: #e1e1e1">look_back = 30<br/>
+<br/>
+train_generator = TimeseriesGenerator(train_data_scaled, train_data_scaled, length        = look_back, sampling_rate = 1, stride        = 1, batch_size    = 10)<br/>
+<br/>
+test_generator = TimeseriesGenerator(test_data_scaled, test_data_scaled, length        = look_back, sampling_rate = 1, stride        = 1, batch_size    = 10)</pre></li>
+</ol>
+<p>Urutan teknik ini dijaga konsisten antara implementasi pada
+<i>notebook</i> dan penjelasan dalam laporan ini. Setiap langkah
+memiliki tujuan spesifik untuk mempersiapkan data agar optimal untuk
+proses pemodelan <i>deep learning</i>.</p>
+<hr/>
+
+<h2 class="western">Modeling</h2>
+<p>Tahap pemodelan melibatkan perancangan, pelatihan, dan optimasi
+model <i>deep learning</i> untuk prediksi harga saham AALI.JK.
+Algoritma utama yang digunakan adalah kombinasi Convolutional Neural
+Network (CNN) dan Long Short-Term Memory (LSTM).</p>
+<h3 class="western">Model Dasar CNN-LSTM (Model Awal yang
+Dikembangkan)</h3>
+<p>Sebagai langkah awal dan <i>baseline</i>, sebuah model CNN-LSTM
+dirancang dengan arsitektur dan parameter spesifik berikut. Model ini
+kemudian dilatih dan dievaluasi sebelum dilakukan optimasi lebih
+lanjut menggunakan <i>hyperparameter tuning</i>.</p>
+<p>Sebelum merinci arsitektur model yang dikembangkan, penting untuk
+memahami karakteristik, kelebihan, dan kekurangan dari algoritma CNN
+dan LSTM yang menjadi dasar model <i>hybrid</i> ini, terutama dalam
+konteks prediksi data deret waktu seperti harga saham.</p>
+<p><b>Karakteristik Algoritma yang Digunakan (CNN dan LSTM):</b></p>
+<ol>
+	<li><p><b>Convolutional Neural Network (CNN)</b></p>
+	<ul>
+		<li><p style="margin-bottom: 0in"><b>Kelebihan</b>:</p>
+		<ul>
+			<li><p><b>Ekstraksi Fitur Lokal</b>: Sangat baik dalam
+			mengidentifikasi pola-pola lokal atau fitur-fitur penting dalam
+			segmen data yang lebih kecil dari keseluruhan sekuens (misalnya,
+			pola pergerakan harga jangka pendek dalam beberapa hari terakhir).</p></li>
+			<li><p><b>Feature Engineering Otomatis</b>: Dapat secara otomatis
+			mempelajari dan mengekstrak fitur-fitur relevan dari data input
+			mentah tanpa perlu <i>feature engineering</i> manual yang
+			ekstensif pada tahap awal.</p></li>
+			<li><p><b>Pengurangan Dimensionalitas</b>: Lapisan <i>pooling</i>
+			yang sering digunakan setelah lapisan konvolusi membantu
+			mengurangi dimensionalitas data, sehingga dapat mempercepat
+			komputasi dan mengurangi risiko <i>overfitting</i>.</p></li>
+			<li><p><b>Parameter Sharing</b>: Penggunaan kernel yang sama di
+			seluruh input mengurangi jumlah parameter yang perlu dipelajari,
+			membuat model lebih efisien.</p></li>
+		</ul>
+		<li><p style="margin-bottom: 0in"><b>Kekurangan</b>:</p>
+		<ul>
+			<li><p><b>Keterbatasan Mempelajari Dependensi Jangka Panjang</b>:
+			CNN dengan sendirinya kurang efektif dalam menangkap hubungan atau
+			dependensi antara titik data yang berjauhan dalam sekuens waktu
+			yang panjang karena sifat lokal dari operasinya.</p></li>
+			<li><p><b>Sensitivitas terhadap Panjang Input</b>: Kinerja bisa
+			dipengaruhi oleh panjang jendela input yang dipilih untuk lapisan
+			konvolusi.</p></li>
+		</ul>
+	</ul>
+	<li><p><b>Long Short-Term Memory (LSTM)</b></p>
+	<ul>
+		<li><p style="margin-bottom: 0in"><b>Kelebihan</b>:</p>
+		<ul>
+			<li><p><b>Pemodelan Dependensi Jangka Panjang</b>: Dirancang
+			khusus untuk mengingat informasi dalam jangka waktu yang lama
+			melalui mekanisme <i>gates</i> (input, forget, output), sehingga
+			sangat cocok untuk data deret waktu yang memiliki dependensi
+			temporal.</p></li>
+			<li><p><b>Mengatasi Vanishing/Exploding Gradient</b>: Lebih tahan
+			terhadap masalah <i>vanishing</i> atau <i>exploding gradient</i>
+			yang sering terjadi pada RNN sederhana, memungkinkan pelatihan
+			pada sekuens yang lebih panjang.</p></li>
+			<li><p><b>Fleksibilitas</b>: Mampu memodelkan pola temporal yang
+			kompleks dan non-linear.</p></li>
+		</ul>
+		<li><p style="margin-bottom: 0in"><b>Kekurangan</b>:</p>
+		<ul>
+			<li><p><b>Kompleksitas Komputasi</b>: Lebih kompleks dan
+			membutuhkan waktu pelatihan yang lebih lama dibandingkan CNN atau
+			RNN sederhana, terutama dengan sekuens yang panjang atau banyak
+			unit LSTM.</p></li>
+			<li><p><b>Kebutuhan Data</b>: Cenderung membutuhkan jumlah data
+			yang lebih besar untuk dilatih secara efektif.</p></li>
+			<li><p><b>Risiko Overfitting</b>: Karena kompleksitasnya, model
+			LSTM bisa rentan terhadap <i>overfitting</i> jika tidak
+			diregularisasi dengan baik.</p></li>
+		</ul>
+	</ul>
+	<li><p><b>Model Hybrid CNN-LSTM</b>&nbsp;Dengan menggabungkan kedua
+	arsitektur ini, model <i>hybrid</i> CNN-LSTM bertujuan memanfaatkan
+	keunggulan masing-masing:</p>
+	<ul>
+		<li><p><b>Kelebihan Kombinasi</b>: CNN digunakan pada tahap awal
+		untuk mengekstrak fitur-fitur lokal dan pola-pola penting dari data
+		input sekuensial. Output dari lapisan CNN (yang merupakan
+		representasi fitur yang lebih ringkas dan kaya) kemudian dimasukkan
+		ke dalam lapisan LSTM yang akan memodelkan dependensi temporal
+		jangka panjang dari fitur-fitur tersebut. Pendekatan ini seringkali
+		menghasilkan kinerja yang lebih baik daripada menggunakan salah
+		satu arsitektur secara terpisah.</p></li>
+		<li><p><b>Kekurangan Kombinasi</b>: Kompleksitas model meningkat,
+		yang berarti proses <i>tuning hyperparameter</i> menjadi lebih
+		menantang dan waktu pelatihan bisa lebih lama. Risiko <i>overfitting</i>
+		juga perlu dikelola dengan cermat melalui teknik regularisasi.</p></li>
+	</ul>
+</ol>
+<p>Dengan pemahaman ini, arsitektur model dasar CNN-LSTM yang
+dikembangkan adalah sebagai berikut:</p>
+<p><b>Arsitektur Model:</b>&nbsp;Model dibangun secara sekuensial
+dengan lapisan-lapisan sebagai berikut:</p>
+<ol>
+	<li><p style="margin-bottom: 0in"><b>Lapisan CNN (</b><font face="Liberation Mono, monospace"><b>Conv1D</b></font><b>)</b>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">filters</font>: 32</p></li>
+		<li><p><font face="Liberation Mono, monospace">kernel_size</font>:
+		3</p></li>
+		<li><p><font face="Liberation Mono, monospace">activation</font>:
+		'relu'</p></li>
+		<li><p><font face="Liberation Mono, monospace">input_shape</font>:
+		(<font face="Liberation Mono, monospace">look_back</font>, 1), di
+		mana <font face="Liberation Mono, monospace">look_back</font>
+		adalah 30 hari.</p></li>
+		<li><p><font face="Liberation Mono, monospace">padding</font>:
+		'same'</p></li>
+		<li><p><font face="Liberation Mono, monospace">kernel_regularizer</font>:
+		<font face="Liberation Mono, monospace">regularizers.l2(0.001)</font>
+		untuk mencegah <i>overfitting</i>.</p></li>
+	</ul>
+	<li><p><font face="Liberation Mono, monospace"><b>BatchNormalization()</b></font>:
+	Untuk menstabilkan dan mempercepat proses pelatihan setelah lapisan
+	CNN.</p></li>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>MaxPooling1D()</b></font>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">pool_size</font>: 2,
+		untuk mereduksi dimensi spasial.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>Dropout()</b></font>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">rate</font>: 0.5,
+		diterapkan setelah <i>max pooling</i> untuk regularisasi.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><b>Lapisan LSTM</b>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">units</font>: 25</p></li>
+		<li><p><font face="Liberation Mono, monospace">activation</font>:
+		'relu'</p></li>
+		<li><p><font face="Liberation Mono, monospace">return_sequences</font>:
+		<font face="Liberation Mono, monospace">False</font> (karena ini
+		lapisan LSTM terakhir sebelum lapisan Dense output).</p></li>
+		<li><p><font face="Liberation Mono, monospace">kernel_regularizer</font>:
+		<font face="Liberation Mono, monospace">regularizers.l2(0.001)</font>.</p></li>
+	</ul>
+	<li><p><font face="Liberation Mono, monospace"><b>BatchNormalization()</b></font>:
+	Setelah lapisan LSTM.</p></li>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>Dropout()</b></font>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">rate</font>: 0.2,
+		diterapkan setelah LSTM untuk regularisasi lebih lanjut.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><b>Lapisan Output (</b><font face="Liberation Mono, monospace"><b>Dense</b></font><b>)</b>:</p>
+	<ul>
+		<li><p><font face="Liberation Mono, monospace">units</font>: 1
+		(untuk prediksi harga tunggal).</p></li>
+	</ul>
+</ol>
+<p><b>Ringkasan Model (Contoh Snippet):</b></p>
+<pre style="margin-bottom: 0.2in; background: #e1e1e1">input_shape = (look_back, 1)<br/>
+model_cnn_lstm = Sequential()<br/>
+# Lapisan CNN<br/>
+model_cnn_lstm.add(Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=input_shape, padding='same', kernel_regularizer=regularizers.l2(0.001)))<br/>
+model_cnn_lstm.add(BatchNormalization())<br/>
+model_cnn_lstm.add(MaxPooling1D(pool_size=2))<br/>
+model_cnn_lstm.add(Dropout(0.5))<br/>
+# Lapisan LSTM<br/>
+model_cnn_lstm.add(LSTM(units=25, activation='relu', return_sequences=False, kernel_regularizer=regularizers.l2(0.001)))<br/>
+model_cnn_lstm.add(BatchNormalization())<br/>
+model_cnn_lstm.add(Dropout(0.2))<br/>
+# Lapisan Output<br/>
+model_cnn_lstm.add(Dense(units=1))<br/>
+model_cnn_lstm.summary()</pre><h3 class="western">
+Hyperparameter Tuning dengan KerasTuner</h3>
+<p>Setelah model dasar CNN-LSTM dikembangkan, langkah selanjutnya
+adalah melakukan <i>hyperparameter tuning</i> untuk menemukan
+kombinasi parameter yang optimal. Proses ini dilakukan menggunakan
+KerasTuner dengan metode <font face="Liberation Mono, monospace">RandomSearch</font>.</p>
+<p><b>Parameter yang Dioptimalkan dan Ruang Pencarian:</b>&nbsp;Berikut
+adalah parameter yang dioptimalkan selama proses <i>hyperparameter
+tuning</i> beserta rentang atau pilihan nilainya, sesuai dengan
+definisi pada fungsi <font face="Liberation Mono, monospace">build_model_tuner</font>
+dalam <i>notebook</i>:</p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>conv_filters</b></font>:
+	Jumlah filter pada lapisan Conv1D.</p>
+	<ul>
+		<li><p>Rentang: 24 hingga 36 (dengan langkah 4). Pilihan nilai: 24,
+		28, 32, 36.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>kernel_size_conv</b></font>:
+	Ukuran kernel pada lapisan Conv1D.</p>
+	<ul>
+		<li><p>Pilihan: 2 atau 3.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>l2_conv</b></font>:
+	Faktor regularisasi L2 untuk lapisan Conv1D.</p>
+	<ul>
+		<li><p>Rentang: 1e-4 hingga 1e-2 (disampel secara logaritmik).</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>dropout_conv</b></font>:
+	Tingkat <i>dropout</i> setelah lapisan MaxPooling1D (setelah blok
+	CNN).</p>
+	<ul>
+		<li><p>Rentang: 0.4 hingga 0.6 (dengan langkah 0.1). Pilihan nilai:
+		0.4, 0.5, 0.6.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>lstm_units</b></font>:
+	Jumlah unit pada lapisan LSTM.</p>
+	<ul>
+		<li><p>Rentang: 17 hingga 33 (dengan langkah 4). Pilihan nilai: 17,
+		21, 25, 29, 33.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>l2_lstm</b></font>:
+	Faktor regularisasi L2 untuk lapisan LSTM.</p>
+	<ul>
+		<li><p>Rentang: 1e-4 hingga 1e-2 (disampel secara logaritmik).</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>dropout_lstm</b></font>:
+	Tingkat <i>dropout</i> setelah lapisan LSTM.</p>
+	<ul>
+		<li><p>Rentang: 0.1 hingga 0.4 (dengan langkah 0.1). Pilihan nilai:
+		0.1, 0.2, 0.3, 0.4.</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in"><font face="Liberation Mono, monospace"><b>learning_rate</b></font>:
+	Laju pembelajaran untuk optimizer Adam.</p>
+	<ul>
+		<li><p>Pilihan: 0.0001, 0.0005, atau 0.001.</p></li>
+	</ul>
+</ul>
+<p><b>Metode Tuning</b></p>
+<ul>
+	<li><p><b>Tuner</b>: <font face="Liberation Mono, monospace">RandomSearch</font>
+	dari KerasTuner.</p></li>
+	<li><p><b>Objective</b>: <font face="Liberation Mono, monospace">val_loss</font>
+	(meminimalkan MSE pada data validasi).</p></li>
+	<li><p><b>Max Trials</b>: 20 (jumlah total kombinasi hyperparameter
+	yang akan dicoba).</p></li>
+	<li><p><b>Executions per Trial</b>: 1 (setiap kombinasi dilatih satu
+	kali).</p></li>
+	<li><p><b>Direktori Proyek</b>: <font face="Liberation Mono, monospace">my_kt_project</font>
+	(tempat KerasTuner menyimpan hasil).</p></li>
+	<li><p><b>Nama Proyek</b>: <font face="Liberation Mono, monospace">stock_price_tuning</font>.</p></li>
+</ul>
+<p><b>Contoh Snippet Fungsi </b><font face="Liberation Mono, monospace"><b>build_model_tuner</b></font><b>:</b></p>
+<pre style="margin-bottom: 0.2in; background: #e1e1e1">import keras_tuner as kt<br/>
+from tensorflow.keras.models import Sequential<br/>
+from tensorflow.keras.layers import Conv1D, MaxPooling1D, LSTM, Dense, Dropout, BatchNormalization<br/>
+from tensorflow.keras.optimizers import Adam<br/>
+from tensorflow.keras import regularizers<br/>
+<br/>
+look_back = 30 # Pastikan variabel ini konsisten<br/>
+<br/>
+def build_model_tuner(hp):<br/>
+    input_shape_dynamic = (look_back, 1)<br/>
+    model = Sequential()<br/>
+<br/>
+    hp_conv_filters = hp.Int('conv_filters', min_value=24, max_value=36, step=4)<br/>
+    hp_kernel_size_conv = hp.Choice('kernel_size_conv', values=[2, 3])<br/>
+    hp_l2_conv = hp.Float('l2_conv', min_value=1e-4, max_value=1e-2, sampling='log')<br/>
+    hp_dropout_conv = hp.Float('dropout_conv', min_value=0.4, max_value=0.6, step=0.1)<br/>
+    <br/>
+    hp_lstm_units = hp.Int('lstm_units', min_value=17, max_value=33, step=4)<br/>
+    hp_l2_lstm = hp.Float('l2_lstm', min_value=1e-4, max_value=1e-2, sampling='log')<br/>
+    hp_dropout_lstm = hp.Float('dropout_lstm', min_value=0.1, max_value=0.4, step=0.1)<br/>
+    <br/>
+    hp_learning_rate = hp.Choice('learning_rate', values=[1e-4, 5e-4, 1e-3])<br/>
+<br/>
+    model.add(Conv1D(filters=hp_conv_filters, kernel_size=hp_kernel_size_conv, activation='relu',<br/>
+                     input_shape=input_shape_dynamic, padding='same',<br/>
+                     kernel_regularizer=regularizers.l2(hp_l2_conv)))<br/>
+    model.add(BatchNormalization())<br/>
+    model.add(MaxPooling1D(pool_size=2))<br/>
+    model.add(Dropout(hp_dropout_conv))<br/>
+<br/>
+    model.add(LSTM(units=hp_lstm_units, activation='relu', return_sequences=False,<br/>
+                   kernel_regularizer=regularizers.l2(hp_l2_lstm)))<br/>
+    model.add(BatchNormalization())<br/>
+    model.add(Dropout(hp_dropout_lstm))<br/>
+<br/>
+    model.add(Dense(units=1))<br/>
+    <br/>
+    model.compile(optimizer=Adam(learning_rate=hp_learning_rate),<br/>
+                  loss='mean_squared_error')<br/>
+    return model</pre><p>
+<b>Proses Pencarian Hyperparameter</b>&nbsp;Proses pencarian
+hyperparameter dijalankan menggunakan tuner_model.search() dengan
+<font face="Liberation Mono, monospace">train_generator</font>,
+<font face="Liberation Mono, monospace">test_generator</font>, dan
+<font face="Liberation Mono, monospace">callback</font> <font face="Liberation Mono, monospace">EarlyStopping</font>
+(dengan patience=10). Setiap trial dilatih hingga maksimal 100 epoch
+atau hingga early stopping terpicu.</p>
+<p><b>Hasil Hyperparameter Tuning</b>&nbsp;Setelah proses pencarian
+dengan <font face="Liberation Mono, monospace">RandomSearch</font>
+selama 20 <i>trial</i> (setiap <i>trial</i> dilatih maksimal 100
+<i>epoch</i> dengan <i>early stopping</i>), KerasTuner berhasil
+menemukan kombinasi hyperparameter terbaik yang menghasilkan <font face="Liberation Mono, monospace">val_loss</font>
+(MSE pada data validasi ternormalisasi) terendah.</p>
+<p>Berikut adalah detail hyperparameter terbaik yang ditemukan
+(berdasarkan output <font face="Liberation Mono, monospace">best_hps.values</font>
+dari <i>notebook</i>):</p>
+<ul>
+	<li><p><font face="Liberation Mono, monospace"><b>conv_filters</b></font>:
+	24</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>kernel_size_conv</b></font>:
+	2</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>l2_conv</b></font>:
+	0.000254</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>dropout_conv</b></font>:
+	0.5</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>lstm_units</b></font>:
+	25</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>l2_lstm</b></font>:
+	0.000510</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>dropout_lstm</b></font>:
+	0.1</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>learning_rate</b></font>:
+	0.0005</p></li>
+</ul>
+<p>Konfigurasi hyperparameter terbaik ini menghasilkan nilai <font face="Liberation Mono, monospace"><b>val_loss</b></font>
+(MSE pada data validasi ternormalisasi) sebesar <b>0.001179</b>
+selama fase pencarian (<i>search phase</i>) KerasTuner.</p>
+<p><b>Pelatihan Ulang Model Terbaik Hasil Tuning</b>&nbsp;Setelah
+mendapatkan kombinasi hyperparameter terbaik dari KerasTuner, model
+CNN-LSTM dibangun ulang menggunakan konfigurasi tersebut. Model ini
+kemudian dilatih kembali (<i>retraining</i>) menggunakan seluruh data
+latih (<font face="Liberation Mono, monospace">train_generator</font>)
+untuk jumlah <i>epoch</i> yang lebih banyak, yaitu 150 <i>epoch</i>
+(<font face="Liberation Mono, monospace">final_epochs = 150</font>).</p>
+<p>Selama proses pelatihan ulang ini, <i>callback</i> <font face="Liberation Mono, monospace">ModelCheckpoint</font>
+(<font face="Liberation Mono, monospace">final_checkpoint</font>)
+digunakan untuk memantau <font face="Liberation Mono, monospace">val_loss</font>
+dan menyimpan versi model yang mencapai <font face="Liberation Mono, monospace">val_loss</font>
+terendah. Nama file untuk model terbaik yang disimpan secara otomatis
+dihasilkan berdasarkan nilai hyperparameter terbaik,
+yaitu:&nbsp;<font face="Liberation Mono, monospace">model_final_terbaik_lstm25_conv24_ks2_dropconv05_droplstm01_lr0005.keras</font>.</p>
+<p>Berdasarkan <i>log output</i> pelatihan di <i>notebook</i>,
+<font face="Liberation Mono, monospace">val_loss</font> (MSE pada
+data validasi ternormalisasi) terbaik yang dicapai selama pelatihan
+ulang ini adalah <b>0.00117</b> pada <b>epoch ke-100</b>. Bobot dari
+epoch inilah yang kemudian dimuat ke dalam <font face="Liberation Mono, monospace">best_model</font>
+(yang selanjutnya disebut <font face="Liberation Mono, monospace">model_to_plot</font>)
+untuk tahap evaluasi akhir.</p>
+<p>Model yang sudah dioptimalkan dan dilatih ulang ini kemudian
+dievaluasi performanya pada data latih dan data uji, yang hasilnya
+akan dibahas pada bagian Evaluasi.</p>
+<h2 class="western">Evaluation</h2>
+<p>Tahap evaluasi bertujuan untuk mengukur kinerja model prediksi
+harga saham yang telah dikembangkan dan dioptimalkan. Evaluasi
+dilakukan secara kuantitatif menggunakan metrik statistik dan secara
+kualitatif melalui analisis plot prediksi terhadap nilai aktual.</p>
+<h3 class="western">Metrik Evaluasi yang Digunakan</h3>
+<p>Metrik yang digunakan untuk mengevaluasi model regresi pada
+prediksi harga saham ini adalah:</p>
+<ol>
+	<li><p><b>Mean Squared Error (MSE)</b></p>
+	<ul>
+		<li><p><b>Penjelasan</b>: MSE mengukur rata-rata dari kuadrat
+		selisih antara nilai aktual ($Y_i$) dan nilai prediksi
+		($\hat{Y}_i$). MSE memberikan bobot yang lebih besar pada kesalahan
+		yang besar karena adanya proses pengkuadratan. Nilai MSE yang lebih
+		kecil menunjukkan kinerja model yang lebih baik.</p></li>
+		<li><p><b>Formula</b>:<br/>
+$$&nbsp;\text{MSE} = \frac{1}{n}
+		\sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2&nbsp;$$<br/>
+dimana $n$ adalah
+		jumlah total data poin.</p></li>
+		<li><p><b>Cara Kerja</b>: Selama pelatihan, model dioptimalkan
+		untuk meminimalkan MSE (atau <font face="Liberation Mono, monospace">val_loss</font>
+		yang setara dengan MSE pada data validasi yang dinormalisasi).</p></li>
+	</ul>
+	<li><p><b>Root Mean Squared Error (RMSE)</b></p>
+	<ul>
+		<li><p><b>Penjelasan</b>: RMSE adalah akar kuadrat dari MSE.
+		Keunggulan utama RMSE adalah satuannya sama dengan variabel target
+		(dalam kasus ini, harga saham dalam IDR setelah <i>inverse
+		scaling</i>), sehingga lebih mudah diinterpretasikan sebagai
+		besaran rata-rata kesalahan prediksi.</p></li>
+		<li><p><b>Formula</b>:<br/>
+$$&nbsp;\text{RMSE} = \sqrt{\text{MSE}}
+		= \sqrt{\frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2}&nbsp;$$</p></li>
+		<li><p><b>Cara Kerja</b>: Seperti MSE, RMSE juga sensitif terhadap
+		kesalahan besar. Nilai RMSE yang lebih rendah menunjukkan model
+		yang lebih baik.</p></li>
+	</ul>
+	<li><p><b>Mean Absolute Error (MAE)</b></p>
+	<ul>
+		<li><p><b>Penjelasan</b>: MAE mengukur rata-rata dari nilai absolut
+		selisih antara nilai aktual dan nilai prediksi.</p></li>
+		<li><p><b>Formula</b>:<br/>
+$$&nbsp;\text{MAE} = \frac{1}{n}
+		\sum_{i=1}^{n} \left| Y_i - \hat{Y}_i \right|&nbsp;$$</p></li>
+		<li><p><b>Cara Kerja</b>: MAE memberikan gambaran tentang seberapa
+		besar rata-rata kesalahan prediksi tanpa memperhatikan arahnya
+		(apakah prediksi lebih tinggi atau lebih rendah dari aktual). MAE
+		kurang sensitif terhadap nilai <i>outlier</i> atau kesalahan
+		prediksi yang sangat besar dibandingkan dengan MSE/RMSE. Nilai MAE
+		yang lebih rendah juga menunjukkan model yang lebih baik.</p></li>
+	</ul>
+</ol>
+<hr/>
+
+<p>Metrik-metrik ini dipilih karena umum digunakan dalam masalah
+regresi dan memberikan perspektif yang berbeda mengenai akurasi dan
+besaran kesalahan prediksi model, terutama setelah nilai prediksi
+dikembalikan ke skala harga aslinya.</p>
+<h3 class="western">Hasil Model Dasar CNN-LSTM (Model Awal)</h3>
+<p>Model dasar CNN-LSTM yang telah dirancang dengan parameter <font face="Liberation Mono, monospace">Conv1D
+filters=32</font>, <font face="Liberation Mono, monospace">LSTM
+units=25</font>, <font face="Liberation Mono, monospace">Dropout(0.5)</font>
+setelah CNN, <font face="Liberation Mono, monospace">Dropout(0.2)</font>
+setelah LSTM, dan <font face="Liberation Mono, monospace">learning_rate=0.0005</font>
+dilatih selama 30 <i>epoch</i>. Proses pelatihan ini menggunakan
+<i>callback</i> <font face="Liberation Mono, monospace">EarlyStopping</font>,
+<font face="Liberation Mono, monospace">ReduceLROnPlateau</font>, dan
+<font face="Liberation Mono, monospace">ModelCheckpoint</font> (yang
+menyimpan model terbaik sebagai <font face="Liberation Mono, monospace">'model_terbaik_val_loss.keras'</font>).</p>
+<p><b>Kinerja Selama Pelatihan:</b>&nbsp;Berdasarkan <i>log output</i>
+pada Cell 37 di <i>notebook</i>:</p>
+<ul>
+	<li><p><font face="Liberation Mono, monospace">val_loss</font> (MSE
+	pada data validasi ternormalisasi) terbaik yang dicapai oleh model
+	dasar ini adalah <b>0.00330</b>. Ini terjadi pada <b>epoch ke-15</b>,
+	dan bobot dari epoch inilah yang disimpan oleh <font face="Liberation Mono, monospace">ModelCheckpoint</font>
+	dan kemudian dimuat kembali ke <font face="Liberation Mono, monospace">model_cnn_lstm</font>
+	untuk evaluasi lebih lanjut.</p></li>
+</ul>
+<p><b>Evaluasi pada Data Uji (Skala Asli):</b>&nbsp;Setelah memuat
+bobot terbaik, model dasar dievaluasi pada data uji (<font face="Liberation Mono, monospace">test_generator</font>).
+Hasil prediksi kemudian dikembalikan ke skala harga asli sebelum
+dihitung metrik evaluasinya (sesuai Cell 43 pada <i>notebook</i>):</p>
+<ul>
+	<li><p><b>Test RMSE (Original Scale)</b>: <b>1003.72</b></p></li>
+	<li><p><b>Test MAE (Original Scale)</b>: <b>768.05</b></p></li>
+</ul>
+<p><b>Visualisasi Hasil Prediksi Model Dasar:</b>&nbsp;Plot
+perbandingan antara harga aktual dan harga prediksi pada data latih
+dan data uji (setelah <i>inverse transform</i>) disajikan dalam
+<i>notebook</i> (output Cell 41 dan plot yang dihasilkan dari Cell
+43, meskipun plot untuk data uji dari Cell 43 tidak secara eksplisit
+diminta untuk disertakan dalam contoh markdown ini sebelumnya, namun
+hasilnya ada di metrik).</p>
+<p><img src="/input/import-1/image.png" name="Image2" align="absmiddle" width="33" height="33" border="0"/>
+&nbsp;<img src="/input/import-1/image-1.png" name="Image3" align="absmiddle" width="33" height="33" border="0"/>
+</p>
+<p><b>Analisis Kualitatif Plot Model Dasar:</b>&nbsp;Visualisasi
+hasil prediksi dari model dasar CNN-LSTM pada data latih dan data uji
+memberikan gambaran awal mengenai kemampuannya dalam mempelajari dan
+memprediksi pergerakan harga saham AALI.JK.</p>
+<ul>
+	<li><p><b>Pada Data Latih:</b></p>
+	<ul>
+		<li><p>Model prediksi (warna oranye) secara umum mencoba mengikuti
+		tren dari harga aktual (warna hijau). Terlihat bahwa model dapat
+		menangkap arah pergerakan harga secara garis besar, baik saat tren
+		naik di awal periode maupun saat tren menurun dan stabil di periode
+		selanjutnya.</p></li>
+		<li><p>Namun, prediksi yang dihasilkan jauh lebih halus (<i>smoother</i>)
+		dan gagal menangkap magnitudo penuh dari fluktuasi harga aktual.
+		Puncak-puncak harga yang tajam (misalnya di sekitar indeks
+		1700-1800 di mana harga aktual melonjak di atas 30.000, sementara
+		prediksi hanya mencapai sekitar 15.000) dan lembah-lembah harga
+		tidak dapat direplikasi dengan baik oleh model.</p></li>
+		<li><p>Pada periode di mana harga aktual rendah (misalnya antara
+		indeks 1500-1700), prediksi model terkadang mendekati nilai nol
+		atau bahkan negatif, yang kurang realistis untuk harga saham.</p></li>
+		<li><p>Adanya sedikit keterlambatan (<i>lag</i>) juga dapat
+		teramati, di mana reaksi model terhadap perubahan harga cenderung
+		lebih lambat dari pergerakan aktual.</p></li>
+	</ul>
+	<li><p><b>Pada Data Uji:</b></p>
+	<ul>
+		<li><p>Serupa dengan performa pada data latih, model prediksi
+		(warna merah) pada data uji juga menunjukkan upaya untuk mengikuti
+		arah tren umum dari harga aktual (warna biru). Model berhasil
+		menangkap tren penurunan yang dominan pada periode data uji.</p></li>
+		<li><p>Prediksi tetap terlihat lebih halus dibandingkan volatilitas
+		harga aktual. Model kesulitan menangkap puncak-puncak tajam
+		(misalnya di sekitar indeks 150, 600, dan 1000) serta kedalaman
+		lembah harga secara akurat. Sebagai contoh, pada penurunan tajam di
+		sekitar indeks 550, prediksi model tidak turun sedalam harga
+		aktual.</p></li>
+		<li><p>Keterlambatan (<i>lag</i>) dalam prediksi juga cukup jelas
+		terlihat pada data uji, di mana model seringkali baru menunjukkan
+		perubahan arah setelah harga aktual bergerak terlebih dahulu.</p></li>
+	</ul>
+</ul>
+<p>Secara keseluruhan, model dasar CNN-LSTM menunjukkan kemampuan
+awal untuk mempelajari tren jangka panjang dari data harga saham.
+Namun, model ini memiliki keterbatasan signifikan dalam menangkap
+volatilitas, magnitudo perubahan harga yang ekstrem, dan menunjukkan
+adanya <i>lag</i> dalam prediksinya baik pada data latih maupun data
+uji. Performa kualitatif ini mengindikasikan bahwa meskipun model
+dapat mengenali pola umum, akurasinya dalam memprediksi nilai harga
+spesifik masih perlu banyak perbaikan, yang menjadi dasar untuk
+melakukan optimasi melalui <i>hyperparameter tuning</i>.</p>
+<h3 class="western">Hasil Model Setelah Hyperparameter Tuning (Model
+Optimal KerasTuner)</h3>
+<p>Model CNN-LSTM selanjutnya dioptimalkan menggunakan KerasTuner
+(<font face="Liberation Mono, monospace">RandomSearch</font>) untuk
+mencari kombinasi <i>hyperparameter</i> terbaik yang dapat
+meningkatkan performa prediksi.</p>
+<p><b>Kinerja Selama Pencarian Hyperparameter:</b>&nbsp;Proses <i>tuning</i>
+dilakukan dengan <font face="Liberation Mono, monospace">max_trials=20</font>,
+di mana setiap <i>trial</i> dilatih maksimal 100 <i>epoch</i> dan
+menggunakan <i>callback</i> <font face="Liberation Mono, monospace">EarlyStopping</font>
+untuk efisiensi. Berdasarkan output dari <i>notebook</i> (Cell 50),
+nilai <font face="Liberation Mono, monospace"><b>val_loss</b></font>
+(MSE pada data validasi ternormalisasi) terbaik yang ditemukan oleh
+KerasTuner selama proses pencarian (<i>search phase</i>) adalah
+<b>0.001179</b>.</p>
+<p>Hyperparameter terbaik yang ditemukan (berdasarkan output
+<font face="Liberation Mono, monospace">best_hps.values</font> dari
+Cell 52 di <i>notebook</i>) adalah sebagai berikut:</p>
+<ul>
+	<li><p><font face="Liberation Mono, monospace"><b>conv_filters</b></font>:
+	24</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>kernel_size_conv</b></font>:
+	2</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>l2_conv</b></font>:
+	0.000254</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>dropout_conv</b></font>:
+	0.5</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>lstm_units</b></font>:
+	25</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>l2_lstm</b></font>:
+	0.000510</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>dropout_lstm</b></font>:
+	0.1</p></li>
+	<li><p><font face="Liberation Mono, monospace"><b>learning_rate</b></font>:
+	0.0005</p></li>
+</ul>
+<p><b>Kinerja Setelah Pelatihan Ulang Model Terbaik dari
+KerasTuner:</b>&nbsp;Model kemudian dibangun ulang (<font face="Liberation Mono, monospace">best_model</font>)
+menggunakan konfigurasi hyperparameter terbaik di atas dan dilatih
+kembali selama 150 <i>epoch</i> (sesuai variabel <font face="Liberation Mono, monospace">final_epochs</font>
+di Cell 56). Selama pelatihan ulang ini, <i>callback</i>
+<font face="Liberation Mono, monospace">ModelCheckpoint</font>
+(<font face="Liberation Mono, monospace">final_checkpoint</font>)
+digunakan untuk menyimpan versi model dengan <font face="Liberation Mono, monospace">val_loss</font>
+terendah. Nama file model yang disimpan
+adalah:&nbsp;<font face="Liberation Mono, monospace">model_final_terbaik_lstm25_conv24_ks2_dropconv05_droplstm01_lr0005.keras</font>.</p>
+<p>Berdasarkan <i>log output</i> pelatihan ulang di <i>notebook</i>
+(Cell 56), <font face="Liberation Mono, monospace"><b>val_loss</b></font>
+(MSE pada data validasi ternormalisasi) terbaik yang dicapai selama
+tahap pelatihan ulang ini adalah <b>0.00117</b> pada <b>epoch ke-100</b>.
+Bobot dari epoch inilah yang kemudian dimuat ke dalam <font face="Liberation Mono, monospace">model_to_plot</font>
+(Cell 58) untuk evaluasi akhir.</p>
+<p><b>Evaluasi pada Data Uji (Skala Asli) untuk Model Hasil
+Tuning:</b>&nbsp;Setelah memuat bobot terbaik dari pelatihan ulang,
+model yang telah dioptimalkan ini dievaluasi pada data uji. Hasil
+prediksi dikembalikan ke skala harga asli sebelum dihitung metrik
+evaluasinya (sesuai Cell 62 pada <i>notebook</i>):</p>
+<ul>
+	<li><p><b>Test RMSE (Original Scale)</b>: <b>1081.89</b></p></li>
+	<li><p><b>Test MAE (Original Scale)</b>: <b>933.12</b></p></li>
+</ul>
+<p><b>Visualisasi Hasil Prediksi Model Hasil Tuning:</b>&nbsp;Plot
+perbandingan antara harga aktual dan harga prediksi dari
+<font face="Liberation Mono, monospace">model_to_plot</font> pada
+data latih dan data uji (setelah <i>inverse transform</i>) dihasilkan
+oleh fungsi <font face="Liberation Mono, monospace">plot_training_predictions</font>
+(Cell 60) dan <font face="Liberation Mono, monospace">plot_test_predictions</font>
+(yang hasilnya digunakan untuk metrik di Cell 62) dalam <i>notebook</i>.</p>
+<p>Contoh placeholder:&nbsp;<img src="/input/import-1/image-3.png" name="Image4" align="absmiddle" width="33" height="33" border="0"/>
+&nbsp;<img src="/input/import-1/image-2.png" name="Image5" align="absmiddle" width="33" height="33" border="0"/>
+</p>
+<p><b>Analisis Kualitatif Plot Model Hasil Tuning:</b>&nbsp;<b>Analisis
+Kualitatif Plot Model Hasil Tuning:</b>&nbsp;Visualisasi hasil
+prediksi dari model yang telah dioptimalkan menggunakan KerasTuner
+(<font face="Liberation Mono, monospace">model_to_plot</font>) pada
+data latih dan data uji memberikan wawasan mengenai perilakunya.</p>
+<ul>
+	<li><p><b>Pada Data Latih:</b></p>
+	<ul>
+		<li><p>Plot perbandingan harga aktual (hijau) dengan prediksi model
+		(oranye) pada data latih menunjukkan bahwa model secara umum
+		mencoba mengikuti tren harga.</p></li>
+		<li><p>Pada periode awal (sekitar indeks 0 hingga 1500), prediksi
+		model tampak konsisten lebih tinggi dari harga aktual yang
+		menunjukkan kenaikan lambat.</p></li>
+		<li><p>Selama periode dengan volatilitas tinggi (sekitar indeks
+		1700 hingga 3500), model berusaha mengikuti ayunan harga naik dan
+		turun, namun prediksinya jauh lebih halus dan secara signifikan
+		meremehkan ketinggian puncak maupun kedalaman lembah harga. Sebagai
+		contoh, ketika harga aktual melonjak di atas 30.000 (sekitar indeks
+		1800), prediksi model hanya mencapai sekitar 21.000.</p></li>
+		<li><p>Keterlambatan (<i>lag</i>) dalam reaksi model terhadap
+		perubahan harga juga teramati.</p></li>
+		<li><p>Pada periode akhir, prediksi tampak lebih stabil dan
+		mengikuti level umum harga aktual, meskipun tetap dengan
+		volatilitas yang lebih rendah.</p></li>
+	</ul>
+	<li><p><b>Pada Data Uji:</b></p>
+	<ul>
+		<li><p>Plot perbandingan harga aktual (biru) dengan prediksi model
+		(merah) pada data uji menunjukkan bahwa model mampu mengikuti arah
+		tren umum pergerakan harga saham.</p></li>
+		<li><p>Sama seperti pada data latih, prediksi yang dihasilkan
+		cenderung lebih halus (<i>smoother</i>) dibandingkan dengan
+		fluktuasi harga aktual yang lebih tajam. Model kurang berhasil
+		menangkap magnitudo penuh dari puncak dan lembah harga.</p></li>
+		<li><p>Keterlambatan (<i>lag</i>) dalam prediksi juga masih
+		terlihat, di mana model seringkali merespons perubahan harga
+		setelah harga aktual bergerak.</p></li>
+		<li><p>Meskipun demikian, model tampak mengikuti tren penurunan
+		yang dominan pada data uji, terutama dari sekitar indeks 1000 dan
+		seterusnya, walaupun dengan variasi yang lebih kecil.</p></li>
+	</ul>
+</ul>
+<p>Secara kualitatif berdasarkan plot-plot ini, model hasil
+<i>hyperparameter tuning</i> menunjukkan kemampuan untuk mempelajari
+dan mengikuti tren harga secara umum baik pada data latih maupun data
+uji. Namun, sama seperti model dasar, ia masih menunjukkan
+keterbatasan dalam mereplikasi volatilitas tinggi dan magnitudo
+perubahan harga secara presisi, serta adanya efek keterlambatan.
+Performa kuantitatif (metrik RMSE dan MAE) yang telah dihitung akan
+memberikan gambaran yang lebih objektif untuk dibandingkan dengan
+model dasar pada bagian diskusi selanjutnya.</p>
+<h3 class="western">Perbandingan dan Diskusi Hasil</h3>
+<p>Berdasarkan metrik evaluasi yang telah dihitung dan analisis
+visual dari plot prediksi, dapat dilakukan perbandingan kinerja
+antara Model Dasar CNN-LSTM dan Model yang telah dioptimalkan melalui
+Hyperparameter Tuning dengan KerasTuner.</p>
+<p><b>Tabel Perbandingan Metrik Kinerja Model:</b></p>
+<table width="100%" cellpadding="4" cellspacing="0">
+	<col width="64*"/>
+	<col width="64*"/>
+	<col width="64*"/>
+	<col width="64*"/>
+	<thead>
+		<tr valign="top">
+			<th width="25%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				Model</p>
+			</th>
+			<th width="25%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p>
+				<font face="Liberation Mono, monospace">val_loss</font> (Scaled
+				MSE) Terbaik Saat Pelatihan/Tuning</p>
+			</th>
+			<th width="25%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.04in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				Test RMSE (Skala Asli)</p>
+			</th>
+			<th width="25%" style="border: 1px solid #000000; padding: 0.04in"><p align="left">
+				Test MAE (Skala Asli)</p>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				Model Dasar CNN-LSTM</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				0.00330 (pada epoch ke-15 saat pelatihannya)</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p>
+				<b>1003.72</b></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in"><p>
+				<b>768.05</b></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				Model Hasil Hyperparameter Tuning</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				0.00117 (pada epoch ke-100 saat pelatihan ulang)</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p align="left">
+				1081.89</p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in"><p align="left">
+				933.12</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p>
+				<i>(KerasTuner Search Phase</i></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p>
+				<i>0.001179 (val_loss terbaik saat pencarian))</i></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in"><p>
+				<i>N/A</i></p>
+			</td>
+			<td width="25%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0.04in"><p>
+				<i>N/A</i></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><b>Diskusi Hasil:</b></p>
+<p>Dari tabel perbandingan di atas, beberapa poin penting dapat
+didiskusikan:</p>
+<ol>
+	<li><p><b>Kinerja pada Data Validasi (Ternormalisasi):</b></p>
+	<ul>
+		<li><p>Model Hasil Hyperparameter Tuning menunjukkan <font face="Liberation Mono, monospace"><b>val_loss</b></font><b>
+		(MSE pada data validasi ternormalisasi) yang lebih baik (0.00117)</b>
+		selama proses pelatihannya (baik saat <i>search phase</i> maupun
+		saat <i>retraining</i>) dibandingkan dengan <font face="Liberation Mono, monospace">val_loss</font>
+		terbaik Model Dasar (0.00330). Ini mengindikasikan bahwa KerasTuner
+		berhasil menemukan konfigurasi hyperparameter yang lebih optimal
+		dalam meminimalkan error pada data validasi yang berskala 0-1.</p></li>
+	</ul>
+	<li><p><b>Kinerja pada Data Uji (Skala Asli):</b></p>
+	<ul>
+		<li><p>Bertolak belakang dengan kinerja pada <font face="Liberation Mono, monospace">val_loss</font>
+		ternormalisasi, <b>Model Dasar CNN-LSTM menghasilkan nilai RMSE dan
+		MAE yang lebih rendah</b> pada data uji (RMSE: 1003.72 dan MAE:
+		768.05) dibandingkan dengan Model Hasil Hyperparameter Tuning
+		(RMSE: 1081.89 dan MAE: 933.12) ketika dievaluasi pada skala harga
+		asli. Ini berarti, dalam konteks prediksi nilai harga aktual, model
+		dasar menunjukkan error prediksi absolut dan kuadratik rata-rata
+		yang lebih kecil pada data yang belum pernah dilihat sebelumnya.</p></li>
+	</ul>
+	<li><p><b>Analisis Kualitatif Plot:</b></p>
+	<ul>
+		<li><p style="margin-bottom: 0in">Berdasarkan analisis kualitatif
+		plot prediksi dari kedua model (baik pada data latih maupun data
+		uji):</p>
+		<ul>
+			<li><p>Kedua model menunjukkan kemampuan untuk mengikuti tren umum
+			pergerakan harga saham.</p></li>
+			<li><p>Prediksi dari kedua model cenderung lebih halus (<i>smoother</i>)
+			dibandingkan fluktuasi harga aktual dan kurang mampu menangkap
+			magnitudo penuh dari puncak dan lembah harga secara presisi.</p></li>
+			<li><p>Keterlambatan (<i>lag</i>) dalam prediksi juga teramati
+			pada kedua model, terutama saat terjadi perubahan harga yang
+			cepat.</p></li>
+			<li><p>Model hasil <i>tuning</i>, meskipun memiliki <font face="Liberation Mono, monospace">val_loss</font>
+			ternormalisasi yang lebih baik, tidak secara visual menunjukkan
+			keunggulan signifikan atas model dasar dalam hal kedekatan dengan
+			harga aktual pada data uji jika dibandingkan dengan perbedaan
+			metrik RMSE/MAE-nya. Bahkan, plot data latih model hasil tuning
+			(<font face="Liberation Mono, monospace">image_f5cca6.png</font>)
+			menunjukkan diskrepansi yang cukup besar pada periode awal
+			dibandingkan model dasar (<font face="Liberation Mono, monospace">image_f62353.png</font>).</p></li>
+		</ul>
+	</ul>
+	<li><p><b>Potensi Penyebab Diskrepansi Kinerja:</b>&nbsp;Perbedaan
+	kinerja antara <font face="Liberation Mono, monospace">val_loss</font>
+	ternormalisasi yang lebih baik pada model hasil tuning dengan metrik
+	RMSE/MAE skala asli yang lebih buruk pada data uji dapat disebabkan
+	oleh beberapa faktor:</p>
+	<ul>
+		<li><p><b>Skala Data</b>: Metrik <font face="Liberation Mono, monospace">val_loss</font>
+		dihitung pada data yang dinormalisasi (rentang 0-1). Model yang
+		memiliki error absolut kecil pada skala ini mungkin menghasilkan
+		error absolut yang lebih besar pada skala harga asli setelah proses
+		<i>inverse transformation</i>, terutama jika rentang harga sahamnya
+		besar atau jika distribusi error pada skala ternormalisasi berbeda
+		antar model.</p></li>
+		<li><p><b>Generalisasi ke Data Uji</b>: Model dengan <font face="Liberation Mono, monospace">val_loss</font>
+		terendah pada set validasi (yang diambil dari bagian data latih
+		secara kronologis) tidak selalu menjamin generalisasi terbaik pada
+		set uji yang sepenuhnya baru. Konfigurasi hyperparameter yang
+		optimal untuk data validasi dalam skala ternormalisasi mungkin
+		tidak selalu optimal untuk data uji dalam skala asli.</p></li>
+		<li><p><b>Sensitivitas Hyperparameter</b>: Meskipun KerasTuner
+		mencari hyperparameter &quot;terbaik&quot; berdasarkan <font face="Liberation Mono, monospace">val_loss</font>
+		ternormalisasi, kombinasi tersebut mungkin tidak cukup robas untuk
+		menghasilkan prediksi yang unggul secara konsisten pada skala asli
+		di data uji dibandingkan model dasar yang parameternya diatur
+		secara manual (meskipun tidak melalui proses tuning ekstensif).</p></li>
+		<li><p><b>Karakteristik Model</b>: Model hasil tuning memiliki
+		<font face="Liberation Mono, monospace">conv_filters=24</font> dan
+		<font face="Liberation Mono, monospace">lstm_units=25</font>,
+		sedangkan model dasar memiliki <font face="Liberation Mono, monospace">conv_filters=32</font>
+		dan <font face="Liberation Mono, monospace">lstm_units=25</font>.
+		Perbedaan kecil dalam arsitektur, ditambah dengan perbedaan pada
+		faktor regularisasi L2 dan <i>dropout rates</i> yang ditemukan oleh
+		tuner, dapat mempengaruhi bagaimana model menggeneralisasi.</p></li>
+	</ul>
+</ol>
+<p><b>Kesimpulan Evaluasi Model (Pemilihan Model Terbaik untuk Proyek
+Ini):</b>&nbsp;Meskipun proses <i>hyperparameter tuning</i> dengan
+KerasTuner berhasil menemukan konfigurasi yang menghasilkan <font face="Liberation Mono, monospace">val_loss</font>
+(MSE pada data validasi ternormalisasi) yang lebih rendah (0.00117)
+dibandingkan model dasar (0.00330), <b>Model Dasar CNN-LSTM
+menunjukkan kinerja yang lebih baik dalam hal RMSE (1003.72) dan MAE
+(768.05) pada data uji dalam skala harga asli.</b></p>
+<p>Oleh karena itu, dengan mempertimbangkan tujuan utama proyek yaitu
+memprediksi harga saham AALI.JK dalam nilai mata uang riil, <b>Model
+Dasar CNN-LSTM</b> dianggap sebagai model dengan performa prediksi
+yang lebih baik dari dua pendekatan yang diuji dalam proyek ini untuk
+data uji yang digunakan.</p>
+<p>Namun, perlu dicatat bahwa kedua model masih memiliki keterbatasan
+dalam menangkap volatilitas harga secara akurat dan menunjukkan
+adanya <i>lag</i>. Nilai RMSE dan MAE yang diperoleh, meskipun pada
+model dasar lebih baik, tetap menunjukkan adanya selisih yang cukup
+signifikan dengan harga aktual. Ini mengindikasikan bahwa masih
+terdapat ruang yang besar untuk perbaikan model lebih lanjut,
+misalnya melalui:</p>
+<ul>
+	<li><p>Eksplorasi fitur tambahan (<i>feature engineering</i>)
+	seperti volume perdagangan, indikator teknikal, atau data sentimen
+	pasar.</p></li>
+	<li><p>Penyesuaian periode <font face="Liberation Mono, monospace">look_back</font>
+	yang lebih optimal.</p></li>
+	<li><p>Penggunaan arsitektur model <i>deep learning</i> yang lebih
+	canggih atau berbeda (misalnya, Transformer, atau variasi LSTM/GRU
+	yang lebih kompleks).</p></li>
+	<li><p>Teknik <i>ensemble learning</i> yang menggabungkan prediksi
+	dari beberapa model.</p></li>
+	<li><p>Penyesuaian lebih lanjut pada proses <i>hyperparameter tuning</i>
+	dengan metrik objektif yang mungkin lebih berkorelasi dengan
+	performa pada skala asli atau dengan ruang pencarian yang berbeda.</p></li>
+</ul>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>
