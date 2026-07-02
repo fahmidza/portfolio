@@ -1,14 +1,12 @@
 ---
-category: "data-science"
-sidebar_position: 6
-title: "Sleep Quality Survey Analysis"
+title: Sleep Quality Survey Analysis
 date: 2024-01-01
-description: "Survey-based analysis exploring the relationship between student sleep quality and academic concentration."
+description: Survey-based analysis exploring the relationship between student sleep quality and academic concentration.
+category: data-science
+sidebar_position: 6
 ---
 
 ## Sleep Quality & Academic Concentration Survey
-
-![Sleep Survey Data](/img/pasted-image-1782565851822.png)
 
 > Investigating how student sleep quality impacts learning concentration through primary survey research and statistical analysis.
 
@@ -23,7 +21,7 @@ Sleep deprivation is increasingly common among university students, potentially 
 ### Tech Stack & Tools
 
 | Tool | Purpose |
-|------|---------|
+| --- | --- |
 | SPSS / R | Statistical analysis |
 | Google Forms | Survey distribution |
 | Excel | Data compilation |
@@ -32,16 +30,19 @@ Sleep deprivation is increasingly common among university students, potentially 
 ### Methodology & Approach
 
 #### 1. Survey Design
+
 - Developed structured questionnaire with validated sleep quality scales
 - Included concentration measurement items
 - Demographic and lifestyle covariates
 
 #### 2. Data Collection
+
 - Targeted university student population
 - Online survey distribution
 - Response validation and cleaning
 
 #### 3. Statistical Analysis
+
 - Descriptive statistics and frequency distributions
 - Correlation analysis (Pearson/Spearman)
 - Regression modeling to quantify relationships
