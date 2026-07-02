@@ -4,7 +4,9 @@ date: 2025-03-09
 description: Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends.
 tags:
   - Dashboard
-report_files: []
+report_files:
+  - label: Processing Notebook
+    file: /files/E-Commerce Data Processing.html
 sidebar_position: 1
 category: dashboardss
 ---
@@ -72,6 +74,10 @@ Data exploration revealed several important patterns that form the basis of the 
 ## 5. Customer Segmentation with RFM
 
 RFM (Recency, Frequency, Monetary) analysis is used to identify high-value customers based on how recently they transacted, how often, and how much they spend . This segmentation allows the marketing team to design more targeted retention strategies, such as a dedicated loyalty program for "Champion" customers and reactivation campaigns for customers who are becoming inactive.
+
+![](/img/pasted-image-1782975658828.png "Recency, Frequency, Monetary (RFM) Analysis Plot")
+
+The RFM analysis reveals that customer value varies considerably across recency, frequency, and monetary dimensions. The most loyal customer placed **17 orders**, while several others made between **7 and 9 purchases**, reflecting strong repeat purchasing behavior. Additionally, the top-spending customers generated substantially higher revenue than the average customer, highlighting their importance to overall business performance. Customers with the lowest recency values represent the most recently active buyers and are more likely to respond positively to retention initiatives. These findings enable the company to prioritize high-value customers for loyalty programs while identifying less active customers who may benefit from targeted reactivation campaigns.
 
 ## 6. From Notebook to Interactive Dashboard
 
