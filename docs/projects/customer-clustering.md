@@ -4,6 +4,9 @@ date: 2024-11-13
 description: This project builds a clustering model to group customer transaction patterns into three distinct segments, comparing the performance of 11 clustering algorithms simultaneously to identify the most optimal approach . The resulting segmentation is designed to help the company, in this case study "Loans R Us," gain a deeper understanding of customer characteristics to support customer growth strategies .
 tags:
   - Python
+report_files:
+  - label: Notebook
+    file: /files/Sintaks Clustering.html
 sidebar_position: 1
 category: dashboardss
 ---
