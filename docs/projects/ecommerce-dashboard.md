@@ -1,5 +1,5 @@
 ---
-title: E-commerce Business Dashboard
+title: 'Analyzing E-Commerce Customer Behavior Through Data: From Notebooks to Interactive Dashboards'
 date: 2025-03-09
 description: Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends.
 tags:
