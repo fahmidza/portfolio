@@ -1,115 +1,84 @@
 ---
-sidebar_position: 1
-title: Customer Transaction Clustering
-date: 2023-01-01
-description: Comparative clustering analysis on customer transaction data using 7 different methods including K-Means, GMM, and Deep Clustering.
+title: Customer Transaction Segmentation Using Multi-Algorithm Clustering
+date: 2024-11-13
+description: This project builds a clustering model to group customer transaction patterns into three distinct segments, comparing the performance of 11 clustering algorithms simultaneously to identify the most optimal approach . The resulting segmentation is designed to help the company, in this case study "Loans R Us," gain a deeper understanding of customer characteristics to support customer growth strategies .
 tags:
   - Python
+sidebar_position: 1
 category: dashboardss
 ---
 
-## Customer Transaction Clustering Analysis
+## Background
 
-> Segmenting customers using 7 clustering methods to uncover transaction patterns and deliver strategic business recommendations.
+In a business context, clustering techniques are widely used for customer segmentation, grouping customers based on their transaction characteristics, while in a security context, clustering can also help detect unusual transaction patterns. A good cluster is characterized by high homogeneity among members within a group and high heterogeneity between different groups. This project specifically aims to identify the characteristics of each customer segment so the company can formulate more targeted strategic recommendations.
 
-### Overview
+![](/img/20260702-172916.png)
 
-This project performs a comprehensive clustering analysis on customer transaction data, comparing **seven different clustering algorithms** to identify the most effective segmentation approach. The analysis reveals three distinct customer segments based on transaction behavior, geographic location, and city demographics.
+## Dataset
 
-### Problem Statement
+![](/img/20260702-172947.png)
 
-Businesses often struggle to understand the diverse behavioral patterns within their customer base. Without proper segmentation, marketing strategies remain generic and resource allocation becomes inefficient. This project addresses the need for **data-driven customer segmentation** to enable targeted business strategies.
+The dataset used contains 14,446 customer transactions with six main variables: transaction amount (amt), the buyer's geographic location (lat, long), the population of the cardholder's city (city_pop), and the merchant's geographic location (merch_lat, merch_long). An initial check confirmed there were no missing values across all variables used.
 
-### Tech Stack & Tools
+Exploratory analysis via a scatter plot matrix showed no strong linear relationships between variables, except between the buyer's and merchant's location coordinates (lat–merch_lat, long–merch_long), which is reasonable given their geographic proximity to each other.
 
-| Tool                 | Purpose                                 |
-| -------------------- | --------------------------------------- |
-| Python               | Primary programming language            |
-| Pandas & NumPy       | Data manipulation and preprocessing     |
-| Scikit-learn         | K-Means, Agglomerative, GMM clustering  |
-| Keras                | Deep Clustering (Autoencoder + K-Means) |
-| Scipy                | K-Medians, Fuzzy C-Means                |
-| Matplotlib & Seaborn | Visualization and EDA                   |
-| Jupyter Notebook     | Development environment                 |
+![](/img/20260702-173023.png)
 
-### Dataset Description
+![](/img/20260702-173046.png)
 
-The dataset contains customer transaction records with features including:
+## Data Preparation
 
-- **Transaction amounts** — Purchase values and frequencies
-- **Geographic coordinates** — Customer latitude/longitude
-- **City population** — Demographic context of customer locations
-- **Merchant location** — Point-of-sale geographic data
+Since the amt and city_pop variables have a much larger value range compared to the other geographic variables, scaling was applied selectively using RobustScaler, a scaling method based on the median and interquartile range (IQR) that is more resistant to outliers than standard methods . The geographic variables (lat, long, merch_lat, merch_long) were deliberately left unscaled because they carry important intrinsic meaning that needed to be preserved in the analysis.
 
-Source: `data_clustering.xlsx`
+## Clustering Methodology
 
-![](/img/pasted-image-1782565851822.png)
+This project uniquely tests and compares 11 different clustering algorithms to identify the approach with the best clustering quality, evaluated using the Silhouette Coefficient, which measures how well data points fit within their own cluster compared to their distance from other clusters.
 
-### Methodology & Approach
+The algorithms tested include partitional approaches (K-Means, K-Medoids, K-Medians, Fuzzy C-Means, Robust Weighted K-Means), hierarchical approaches (Agglomerative Clustering), probabilistic approaches (Gaussian Mixture Model), as well as more advanced approaches such as Spectral Co-Clustering, Isolation Forest, and Autoencoder-based Deep Clustering.
 
-#### 1. Exploratory Data Analysis
+## Algorithm Comparison Results
 
-- Statistical descriptives and distribution analysis
-- Missing value detection and handling
-- Correlation heatmaps and feature relationships
+After thorough testing, the following is the performance ranking of all algorithms based on Silhouette Score.
 
-#### 2. Data Preprocessing
+| Rank | Method | Silhouette Score |
+| 1 | KMeans++ | 0.4896 |
+| 2 | KMeans | 0.4895 |
+| 3 | Robust Weighted K-Means | 0.4862 |
+| 4 | Co-Clustering | 0.4860 |
+| 5 | Agglomerative Clustering | 0.4775 |
+| 6 | Deep Clustering (Autoencoder) | 0.4706 |
+| 7 | K-Medians | 0.4686 |
+| 8 | Isolation Forest | 0.3884 |
+| 9 | K-Medoids | 0.3847 |
+| 10 | Fuzzy C-Means | 0.3797 |
+| 11 | Gaussian Mixture Model | 0.1313 |
 
-- **Outlier handling** using RobustScaler for robustness against extreme values
-- Feature scaling and transformation for clustering readiness
+KMeans++ was selected as the best-performing algorithm with a Silhouette Score of 0.4896, only marginally higher than standard KMeans, indicating that smarter centroid initialization provides a slight improvement in cluster quality compared to random initialization.
 
-#### 3. Clustering Methods Applied
+## Customer Segment Characteristics
 
-| #   | Method                      | Approach                           |
-| --- | --------------------------- | ---------------------------------- |
-| 1   | **K-Means**                 | Centroid-based partitioning        |
-| 2   | **K-Medians**               | Robust median-based clustering     |
-| 3   | **K-Medoids**               | Exemplar-based, outlier-resistant  |
-| 4   | **Agglomerative**           | Hierarchical bottom-up merging     |
-| 5   | **Fuzzy C-Means**           | Soft/partial membership assignment |
-| 6   | **Robust Weighted K-Means** | Weighted for outlier data          |
-| 7   | **Gaussian Mixture Model**  | Probabilistic distribution-based   |
-| 8   | **Deep Clustering**         | Autoencoder + K-Means hybrid       |
+![](/img/20260702-173110.png)
 
-#### 4. Evaluation
+Based on the best-performing model, the data was divided into three clusters with an unbalanced member distribution: Cluster 0 with 6,870 transactions, Cluster 1 with 6,581 transactions, and Cluster 2 with only 995 transactions . This imbalance in cluster size suggests the existence of one significantly smaller customer segment that potentially has unique characteristics compared to the two larger majority segments.
 
-All models evaluated using **Silhouette Score** to measure cluster cohesion and separation.
+## Tech Stack
 
-### Key Results & Insights
+`Python` · `Scikit-learn` · `PyClustering` · `Fuzzy-c-means` · `TensorFlow/Keras (Autoencoder)` · `Pandas` · `Seaborn` · `Contextily`
 
-#### Best Model: K-Medians Clustering
+## Business Value
 
-**Silhouette Score: 0.742** — the highest among all methods tested.
+### Segmented Customer Acquisition Strategy
 
-#### Customer Segments Identified
+By understanding three distinct customer segments, the company can design more personalized marketing strategies and product offerings instead of a one-size-fits-all approach for all customers.
 
-| Cluster       | Profile           | Characteristics                             |
-| ------------- | ----------------- | ------------------------------------------- |
-| **Cluster 1** | Budget Shoppers   | Low transaction values, small cities        |
-| **Cluster 2** | Regular Consumers | Medium transactions, large cities           |
-| **Cluster 3** | Premium Customers | High transaction values, metropolitan areas |
+### Transaction Anomaly Detection
 
-#### Strategic Recommendations
+The clustering approach in this project also opens up the potential to identify unusual transaction patterns that warrant closer attention in the context of risk management .
 
-- **Cluster 1:** Focus on increasing transaction value through targeted promotions
-- **Cluster 2:** Strengthen loyalty through incentive programs and engagement
-- **Cluster 3:** Retain premium customers with exclusive services and VIP treatment
+### A Comprehensively Validated Methodology
 
-### Challenges & Solutions
+The systematic comparison of 11 algorithms provides greater confidence that the selected segmentation result is genuinely the best approach, rather than simply a default choice.
 
-| Challenge                   | Solution                                       |
-| --------------------------- | ---------------------------------------------- |
-| High-dimensional outliers   | Applied RobustScaler instead of StandardScaler |
-| Choosing optimal k          | Used Elbow Method + Silhouette Analysis        |
-| Comparing 7+ methods fairly | Standardized evaluation with Silhouette Score  |
+## Personal Learning
 
-### Future Improvements
-
-- Incorporate temporal transaction patterns for dynamic segmentation
-- Apply DBSCAN for density-based outlier-aware clustering
-- Build a real-time customer scoring dashboard
-- Add RFM (Recency, Frequency, Monetary) analysis layer
-
-### Links
-
-- 🔗 [GitHub Repository](https://github.com/fahmidza/Analisis-Clustering-untuk-Data-Transaksi-Pelanggan)
+This project reinforced understanding of the importance of targeted preprocessing, such as applying RobustScaler selectively only to variables that genuinely require it, as well as the value of multi-algorithm benchmarking instead of assuming a single best method applies to every clustering case.
