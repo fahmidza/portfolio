@@ -1,78 +1,86 @@
 ---
-category: "data-science"
+title: Public Sentiment Analysis of Electric Vehicle Policy
+date: 2025-04-13
+description: 'This project analyzes public sentiment in Indonesia toward electric vehicle policy using text data from social media platform X (Twitter), then classifies it into three categories: positive, negative, and neutral through a machine learning approach. After comparing eleven different classification algorithms, the K-Nearest Neighbors (KNN) model was selected as the best-performing model for predicting sentiment on new data.'
+tags:
+  - Sentiment Analysis
+report_files:
+  - label: Notebook
+    file: /files/Analisis Sentimen Kendaraan Listrik.html
+category: data-science
 sidebar_position: 3
-title: "Electric Vehicle Sentiment Analysis"
-date: 2024-01-01
-description: "Sentiment analysis of public opinion on electric vehicles using NLP techniques."
 ---
 
-## Electric Vehicle Sentiment Analysis
+## Background
 
-> Mining public opinion on electric vehicles through text analysis and sentiment classification.
+Electric vehicle policy in Indonesia has received mixed public reactions, ranging from support for the SPKLU ecosystem to criticism regarding subsidies and their impact on the conventional automotive industry. This project aims to explore text data to understand the overall public sentiment, clean the data to improve analysis accuracy, and evaluate various classification models to conclude how the public perceives the policy.
 
-### Overview
+## Dataset
 
-This project analyzes **public sentiment toward electric vehicles (EVs)** using natural language processing techniques. By collecting and processing text data, the analysis reveals how people perceive the EV transition — identifying positive drivers, concerns, and neutral observations in public discourse.
+The raw data consists of 500 tweets from X containing the columns username, tweet_url, Label, and full_text, with the initial labels represented on a numeric scale of -1 (negative), 0 (neutral), and 1 (positive). After removing duplicates and irrelevant data, the cleaned dataset was reduced to 391 rows (with a label distribution of 197 neutral, 134 negative, and 60 positive entries), indicating a dominance of neutral sentiment, but with a fairly significant negative proportion compared to positive sentiment.
 
-### Problem Statement
+![](/img/pasted-image-1782992251368.png)
 
-As Indonesia accelerates its electric vehicle adoption strategy, understanding **public perception** is crucial for policymakers, manufacturers, and stakeholders. This project quantifies sentiment distribution to provide evidence-based insights into EV acceptance and resistance factors.
+## Text Preprocessing
 
-### Tech Stack & Tools
+The text cleaning process included removing usernames, links, and punctuation, followed by case folding to lowercase and handling slang words using a custom Indonesian slang dictionary. The next stage involved stopword removal and stemming using the Sastrawi library to reduce inflected words to their root forms, allowing variations such as "mendukung" and "dukung" to be treated equally by the model.
 
-| Tool | Purpose |
-|------|---------|
-| Python | Core programming language |
-| Pandas | Data processing and manipulation |
-| TextBlob / VADER | Sentiment classification |
-| NLTK / Sastrawi | Text preprocessing (Indonesian NLP) |
-| Matplotlib & Seaborn | Visualization |
-| Jupyter Notebook | Development environment |
+![](/img/20260702-183749.png "Cleaning Unnecessary Elements")
 
-### Methodology & Approach
+![](/img/20260702-183818.png "Text Cleaning")
 
-#### 1. Data Collection
-- Gathered text data related to electric vehicle discussions
-- Filtered for relevance and quality
+![](/img/20260702-183923.png "Slang, Stopwords, and Stemming Processing")
 
-#### 2. Text Preprocessing
-- Noise removal (URLs, mentions, special characters)
-- Indonesian text normalization (slang correction)
-- Tokenization and stopword removal
-- Stemming using Sastrawi for Indonesian language
+## Modeling Methodology
 
-#### 3. Sentiment Classification
-- Polarity scoring using TextBlob
-- Classification into **Positive**, **Neutral**, and **Negative** categories
-- Subjectivity analysis for opinion strength measurement
+The data was split into training, validation, and test sets using stratified sampling to preserve the label proportions in each subset, resulting in 315 training samples, 40 validation samples, and 36 test samples. Eleven classification models were compared using a TF-IDF Vectorizer pipeline and 5-fold cross-validation, including Random Forest, Logistic Regression, Decision Tree, SVM, Naive Bayes, MultinomialNB, SVC, SGDClassifier, KNN, GradientBoosting, and MLP.
 
-#### 4. Analysis & Visualization
-- Sentiment distribution charts
-- Word frequency analysis and word clouds
-- Temporal sentiment trends
+## Model Comparison Results
 
-### Key Results & Insights
+The following table shows the initial performance of all models based on training and validation accuracy before tuning.
 
-- **Sentiment Distribution:** Mixed opinions with identifiable patterns
-- Common **positive themes:** Innovation, environmental benefits, cost savings
-- Common **negative themes:** Charging infrastructure concerns, price barriers, range anxiety
-- Results provide actionable insights for EV stakeholders in Indonesia
+| Model | Train Accuracy | Val Accuracy |
+| KNN | 54.29% | 61.11% |
+| Logistic Regression | 55.56% | 58.33% |
+| SVM | 53.97% | 55.56% |
+| SVC | 53.97% | 55.56% |
+| Random Forest | 55.56% | 52.78% |
+| Naive Bayes | 53.02% | 52.78% |
+| GradientBoosting | 56.51% | 50.00% |
+| Decision Tree | 45.71% | 47.22% |
+| SGDClassifier | 51.11% | 44.44% |
+| MLP | 52.06% | 38.89% |
 
-### How to Reproduce
+The four models with the highest validation accuracy (KNN, Logistic Regression, SVM, and SVC) were then tuned using GridSearchCV.
 
-```bash
-git clone https://github.com/fahmidza/Analisis-Sentimen-Kendaraan-Listrik.git
-pip install pandas textblob nltk Sastrawi matplotlib seaborn
-jupyter notebook
-```
+## Best Model Tuning Results
 
-### Future Improvements
+After tuning, KNN remained the best-performing model with parameters n_neighbors=7, weights='uniform', and algorithm='auto', achieving a validation accuracy of 61.11%. Logistic Regression and SVM/SVC followed with validation accuracies of 55.56% and 52.78%, respectively, after tuning.
 
-- Apply transformer-based models (IndoBERT) for Indonesian sentiment
-- Expand data sources to include news articles and forums
-- Build aspect-based sentiment analysis (infrastructure, pricing, performance)
-- Create temporal dashboard tracking sentiment shifts
+| Model | Best Parameters | Val Accuracy |
+| KNN | n_neighbors=7, weights=uniform, algorithm=auto | 61.11% |
+| Logistic Regression | C=1.0, penalty=l2 | 55.56% |
+| SVM | C=10, gamma=1, kernel=rbf | 52.78% |
+| SVC | C=10, gamma=1, kernel=rbf | 52.78% |
 
-### Links
+## Tech Stack
 
-- 🔗 [GitHub Repository](https://github.com/fahmidza/Analisis-Sentimen-Kendaraan-Listrik)
+Python · Scikit-learn · Sastrawi (Stemming & Stopword) · NLTK · WordCloud · Pandas & NumPy · Seaborn/Matplotlib · LIME (Model Interpretability)
+
+## Business Value
+
+### Real-Time Public Sentiment Monitoring
+
+This sentiment classification model can be adapted into a continuous monitoring system to track shifts in public opinion regarding EV policy over time.
+
+### Input for Policymakers
+
+The finding that negative sentiment is higher than positive sentiment provides an important signal for policymakers that public communication around EV subsidies and infrastructure still needs improvement.
+
+### Transparent Model Interpretation
+
+The use of LIME (Local Interpretable Model-agnostic Explanations) in this project allows the key words driving sentiment predictions to be explained, increasing trust in the model’s output for non-technical stakeholders.
+
+# Personal Learning
+
+This project provided important insights into the challenges of classifying informal Indonesian text, including the importance of a domain-specific slang dictionary and how the small dataset size (391 samples) limits model accuracy even after extensive tuning,  a reminder that data quality and quantity are just as important as algorithm selection.
