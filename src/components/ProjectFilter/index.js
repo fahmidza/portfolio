@@ -114,6 +114,9 @@ export default function ProjectFilter() {
               </div>
               <div className={`card__header ${styles.cardHeader}`}>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
+                <span className={styles.cardDate}>
+                  {new Date(project.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </span>
               </div>
               <div className={`card__body ${styles.cardBody}`}>
                 <p className={styles.cardDescription}>{project.description}</p>

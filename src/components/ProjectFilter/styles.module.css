@@ -155,3 +155,10 @@
   font-size: 0.7rem;
   font-weight: normal;
 }
+
+.cardDate {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  margin-top: 0.25rem;
+  display: block;
+}

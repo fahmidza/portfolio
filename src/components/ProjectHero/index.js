@@ -63,6 +63,9 @@ export default function ProjectHero() {
 
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{title}</h1>
+          <div className={styles.heroDate}>
+            {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </div>
           {description && (
             <p className={styles.heroDescription}>{description}</p>
           )}
